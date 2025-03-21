@@ -1,5 +1,8 @@
 extends Node
 class_name State
+# put all states as child of state_machine
+
+signal Transitioned
 
 func Exit():
 	pass
