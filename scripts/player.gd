@@ -8,6 +8,8 @@ const DASH_SPEED = 1000
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 #@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 #@onready var marker_2d: Marker2D = $Marker2D
+@onready var dash_timer: Timer = $DashTimer
+@onready var dash_cooldown: Timer = $DashCooldown
 
 var is_dead = false
 var has_landed = true
@@ -32,8 +34,8 @@ func _physics_process(delta: float) -> void:
 		dashing = true
 		can_dash = false
 		current_dash_direction = direction
-		$dash_timer.start()
-		$dash_cooldown.start()
+		$DashTimer.start()
+		$DashCooldown.start()
 	if direction and not is_dead: #TODO dash is stopped when no direction is pressed
 		if dashing:
 			velocity.x = current_dash_direction * DASH_SPEED
