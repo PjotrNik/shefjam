@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=8 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="1_0bnu1"]
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
 [ext_resource type="Script" uid="uid://jw8k7lkr0c3t" path="res://scripts/State_machine.gd" id="2_skx2t"]
+[ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xxrv"]
 size = Vector2(114, 121)
@@ -38,5 +39,9 @@ metadata/_custom_type_script = "uid://jw8k7lkr0c3t"
 script = ExtResource("2_6xxrv")
 metadata/_custom_type_script = "uid://sqvd67sa4jvk"
 
+[node name="Boss_Slash" type="Node" parent="State_Machine"]
+script = ExtResource("5_o1i15")
+metadata/_custom_type_script = "uid://cojanes0leprk"
+
 [node name="Attack Slash" type="Node2D" parent="."]
-position = Vector2(120, 0)
+position = Vector2(119, 0)
