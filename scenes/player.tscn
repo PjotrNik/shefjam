@@ -1,7 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://big5kolfa5dqc"]
+[gd_scene load_steps=35 format=3 uid="uid://big5kolfa5dqc"]
 
 [ext_resource type="Texture2D" uid="uid://jagwwxtjh3v7" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://brejbwubl7kt6" path="res://scripts/player.gd" id="1_g2els"]
+
+[sub_resource type="Gradient" id="Gradient_g2els"]
+offsets = PackedFloat32Array(0.106667, 0.686667)
+colors = PackedColorArray(0.0392157, 0.439216, 0.188235, 1, 1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qm0ti"]
 atlas = ExtResource("1_3vyb7")
@@ -122,28 +126,28 @@ region = Rect2(224, 96, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
 animations = [{
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qm0ti")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fhbv5")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pqap4")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2c7ny")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0jhex")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_38am0")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xfidv")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nxd4c")
 }],
 "loop": false,
@@ -234,6 +238,25 @@ size = Vector2(8, 13)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_g2els")
+
+[node name="DashParticles" type="CPUParticles2D" parent="."]
+amount = 100
+lifetime = 0.2
+speed_scale = 0.55
+draw_order = 1
+emission_shape = 2
+emission_sphere_radius = 4.87
+direction = Vector2(0, 0)
+spread = 21.37
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.41
+initial_velocity_max = 40.41
+angular_velocity_min = -625.45
+angular_velocity_max = -625.45
+angle_max = 41.0
+scale_amount_min = 2.1
+scale_amount_max = 3.05
+color_ramp = SubResource("Gradient_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)

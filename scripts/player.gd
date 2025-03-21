@@ -8,6 +8,7 @@ const DASH_SPEED = 1000
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_cooldown: Timer = $DashCooldown
+@onready var dash_particles: CPUParticles2D = $DashParticles
 
 var is_dead = false
 var has_landed = true
@@ -26,17 +27,18 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction: -1, 0, +1
 	#get input direction and handle movement
 	var direction = Input.get_axis("move_left", "move_right")
+	dash_particles.direction.x = -direction
 	var current_dash_direction = direction
 	
 	if Input.is_action_just_pressed("dash") and can_dash and direction != 0:
 		dashing = true
 		can_dash = false
-		#current_dash_direction = direction
-		$DashTimer.start()
-		$DashCooldown.start()
+		dash_particles.emitting = true
+		dash_timer.start()
+		dash_cooldown.start()
 	if direction and not is_dead: #TODO dash is stopped when no direction is pressed
 		if dashing:
-			play_animations("dash")
+			animated_sprite_2d.play("dash")
 			velocity.x = current_dash_direction * DASH_SPEED
 			velocity.y = 0
 		else:
@@ -60,14 +62,12 @@ func play_animations(name: String) -> void:
 	if is_on_floor():
 		animated_sprite_2d.play(name)
 	else:
-		if dashing:
-			animated_sprite_2d.play("Dash")
-		else:
-			animated_sprite_2d.play("jump")
+		animated_sprite_2d.play("jump")
 
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
+	dash_particles.emitting = false
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
