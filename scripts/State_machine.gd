@@ -1,9 +1,12 @@
 extends Node
+class_name State_achine
 
 var states : Dictionary = {}
 var current_state : State
 
 @export var initial_state : State
+
+#To change states call Transitioned.emit(self, "next state")
 
 func _ready():
 	for child in get_children():

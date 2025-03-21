@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=6 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="1_0bnu1"]
+[ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
+[ext_resource type="Script" uid="uid://jw8k7lkr0c3t" path="res://scripts/State_machine.gd" id="2_skx2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xxrv"]
 size = Vector2(114, 121)
@@ -24,3 +26,12 @@ shape = SubResource("RectangleShape2D_6xxrv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_skx2t")
+
+[node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_skx2t")
+initial_state = NodePath("Boss_Walk")
+metadata/_custom_type_script = "uid://jw8k7lkr0c3t"
+
+[node name="Boss_Walk" type="Node" parent="State_Machine"]
+script = ExtResource("2_6xxrv")
+metadata/_custom_type_script = "uid://sqvd67sa4jvk"
