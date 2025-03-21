@@ -16,6 +16,6 @@ func _physics_process(delta):
 	else:
 		global_position.x -= speed * delta
 
-
 func _on_timer_timeout():
+	queue_free()
 	
