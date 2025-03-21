@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-const DASH_SPEED = 1000
+const DASH_SPEED = 500
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 #@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -30,16 +30,16 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("move_left", "move_right")
 	var current_dash_direction = direction
 	
-	if Input.is_action_just_pressed("dash") and is_on_floor() and can_dash and direction != 0:
+	if Input.is_action_just_pressed("dash") and can_dash and direction != 0:
 		dashing = true
 		can_dash = false
-		current_dash_direction = direction
+		#current_dash_direction = direction
 		$DashTimer.start()
 		$DashCooldown.start()
 	if direction and not is_dead: #TODO dash is stopped when no direction is pressed
 		if dashing:
 			velocity.x = current_dash_direction * DASH_SPEED
-			#$AnimatedSprite2D.play("dash")
+			play_animations("dash")
 		else:
 			velocity.x = direction * SPEED
 			play_animations("run")
@@ -58,7 +58,18 @@ func _physics_process(delta: float) -> void:
 	
 func play_animations(name: String) -> void:
 	pass
-	#if is_on_floor():
-		#animated_sprite_2d.play(name)
-	#else:
-		#animated_sprite_2d.play("jump")
+	if is_on_floor():
+		animated_sprite_2d.play(name)
+	else:
+		if dashing:
+			animated_sprite_2d.play("Dash")
+		else:
+			animated_sprite_2d.play("jump")
+
+
+func _on_dash_timer_timeout() -> void:
+	dashing = false
+
+
+func _on_dash_cooldown_timeout() -> void:
+	can_dash = true
