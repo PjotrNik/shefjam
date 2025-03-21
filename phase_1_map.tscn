@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://chp4lbkrfkg0b" path="res://Sprites/Temp_Tilemap.png" id="1_vdvia"]
 [ext_resource type="PackedScene" uid="uid://7t3ngei26bp6" path="res://boss.tscn" id="2_ejrpe"]
-[ext_resource type="PackedScene" uid="uid://big5kolfa5dqc" path="res://scenes/player.tscn" id="3_ia5r4"]
+[ext_resource type="PackedScene" uid="uid://cp6714avm2vd6" path="res://scenes/player.tscn" id="3_ia5r4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejrpe"]
 resource_name = "Tile1"
