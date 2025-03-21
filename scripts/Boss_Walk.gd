@@ -5,7 +5,7 @@ func Exit():
 	pass
 
 func Enter():
-	pass
+	$"../..".set_speed(300)
 	
 func Update(_delta: float):
 	pass
