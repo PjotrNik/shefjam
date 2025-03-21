@@ -14,15 +14,12 @@ func Enter():
 	else:
 		$"../..".direction = -1
 	
-	
 func Update(_delta: float):
 	pass
 	
 func Physics_Update(_delta: float):
 	pass
 	
-
-
 func _on_windup_timeout():
 	var instance = slash.instantiate()
 	instance.position.x = $"../../Attack Slash".position.x
