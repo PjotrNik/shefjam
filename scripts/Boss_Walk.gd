@@ -1,11 +1,13 @@
 extends State
 class_name Boss_Walk
 
+@export var SPEED = 300
+
 func Exit():
 	pass
 
 func Enter():
-	$"../..".set_speed(300)
+	$"../..".current_speed = SPEED
 	
 func Update(_delta: float):
 	pass

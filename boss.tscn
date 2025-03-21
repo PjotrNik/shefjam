@@ -37,3 +37,6 @@ metadata/_custom_type_script = "uid://jw8k7lkr0c3t"
 [node name="Boss_Walk" type="Node" parent="State_Machine"]
 script = ExtResource("2_6xxrv")
 metadata/_custom_type_script = "uid://sqvd67sa4jvk"
+
+[node name="Attack Slash" type="Node2D" parent="."]
+position = Vector2(120, 0)
