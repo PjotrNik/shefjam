@@ -6,8 +6,8 @@ const JUMP_VELOCITY = -300.0
 const DASH_SPEED = 1000
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-@onready var marker_2d: Marker2D = $Marker2D
+#@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+#@onready var marker_2d: Marker2D = $Marker2D
 
 var is_dead = false
 var has_landed = true
@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func play_animations(name: String) -> void:
+	pass
 	#if is_on_floor():
 		#animated_sprite_2d.play(name)
 	#else:
