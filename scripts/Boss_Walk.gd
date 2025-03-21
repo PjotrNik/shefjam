@@ -6,6 +6,7 @@ var player
 
 func Exit():
 	$"../..".current_speed = 0
+	
 
 func Enter():
 	$"../..".current_speed = SPEED
@@ -18,8 +19,17 @@ func Enter():
 		$"../..".direction = -1
 	
 func Update(_delta: float):
-	print ("boss walk update")
-	if player.position.x > $"../..".position.x:
+	var player_x = player.position.x
+	var player_distance = player_x - $"../..".position.x
+	
+	print("player distance: ")
+	print(player_distance)
+	
+	if (abs(player_distance) < 80):
+		Transitioned.emit(self, "Boss_Slash")
+		
+	
+	if player_distance > 0:
 		$"../..".direction = 1
 	else:
 		$"../..".direction = -1

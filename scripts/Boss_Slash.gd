@@ -6,12 +6,13 @@ func Exit():
 	pass
 
 func Enter():
-	var instance = slash.instantiate()
-	print(instance.position)
-	instance.global_position.x = $"../../Attack Slash".global_position.x
-	instance.global_position.y = $"../../Attack Slash".global_position.y * $"../..".direction
-	print(instance.position)
-	add_child(instance)
+	$windup.start()
+	
+	var player_distance = get_tree().get_first_node_in_group("Player").position.x - $"../..".position.x
+	if player_distance > 0:
+		$"../..".direction = 1
+	else:
+		$"../..".direction = -1
 	
 	
 func Update(_delta: float):
@@ -19,4 +20,12 @@ func Update(_delta: float):
 	
 func Physics_Update(_delta: float):
 	pass
+	
+
+
+func _on_windup_timeout():
+	var instance = slash.instantiate()
+	instance.position.x = $"../../Attack Slash".position.x
+	$"../../Attack Slash".add_child(instance)
+	Transitioned.emit(self, "Boss_Walk")
 	
