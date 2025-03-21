@@ -22,9 +22,6 @@ func Update(_delta: float):
 	var player_x = player.position.x
 	var player_distance = player_x - $"../..".position.x
 	
-	print("player distance: ")
-	print(player_distance)
-	
 	if (abs(player_distance) < 80):
 		Transitioned.emit(self, "Boss_Slash")
 		

@@ -22,7 +22,7 @@ func Physics_Update(_delta: float):
 	
 func _on_windup_timeout():
 	var instance = slash.instantiate()
-	instance.position.x = $"../../Attack Slash".position.x
 	$"../../Attack Slash".add_child(instance)
 	Transitioned.emit(self, "Boss_Walk")
+	print ("Tee Hee")
 	

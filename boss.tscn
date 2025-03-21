@@ -46,6 +46,7 @@ script = ExtResource("5_o1i15")
 metadata/_custom_type_script = "uid://cojanes0leprk"
 
 [node name="windup" type="Timer" parent="State_Machine/Boss_Slash"]
+one_shot = true
 
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 50)
