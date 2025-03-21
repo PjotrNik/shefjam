@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt8d6g725yqj1"]
+[gd_scene load_steps=4 format=3 uid="uid://bt8d6g725yqj1"]
 
 [ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="1_3b0hv"]
+[ext_resource type="Script" uid="uid://esfdu7c5k2sd" path="res://scripts/projectile_arc.gd" id="1_ypg35"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ypg35"]
 radius = 31.0
 
-[node name="Projectile1" type="Area2D"]
+[node name="Projectile1" type="CharacterBody2D"]
+script = ExtResource("1_ypg35")
+target_pos = Vector2(500, 400)
+projectile_speed = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ypg35")
