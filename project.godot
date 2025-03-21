@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="shefjam"
-run/main_scene="uid://ccijxglnqfs7n"
+run/main_scene="uid://b8vg5qwpmo23n"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
