@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xxrv"]
-size = Vector2(114, 121)
+size = Vector2(114, 26)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_skx2t"]
 animations = [{
@@ -24,10 +24,12 @@ animations = [{
 script = ExtResource("1_lnbgr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.5)
+position = Vector2(0, 51)
 shape = SubResource("RectangleShape2D_6xxrv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 51)
+scale = Vector2(1, 0.203125)
 sprite_frames = SubResource("SpriteFrames_skx2t")
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -44,4 +46,4 @@ script = ExtResource("5_o1i15")
 metadata/_custom_type_script = "uid://cojanes0leprk"
 
 [node name="Attack Slash" type="Node2D" parent="."]
-position = Vector2(119, 0)
+position = Vector2(119, 50)

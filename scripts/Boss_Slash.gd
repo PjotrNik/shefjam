@@ -8,7 +8,8 @@ func Exit():
 func Enter():
 	var instance = slash.instantiate()
 	print(instance.position)
-	instance.global_position = $"../../Attack Slash".global_position
+	instance.global_position.x = $"../../Attack Slash".global_position.x
+	instance.global_position.y = $"../../Attack Slash".global_position.y * $"../..".direction
 	print(instance.position)
 	add_child(instance)
 	
