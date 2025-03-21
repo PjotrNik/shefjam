@@ -240,8 +240,10 @@ size = Vector2(8, 13)
 script = ExtResource("1_g2els")
 
 [node name="DashParticles" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 100
 lifetime = 0.2
+one_shot = true
 speed_scale = 0.55
 draw_order = 1
 emission_shape = 2
