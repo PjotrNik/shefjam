@@ -2,12 +2,10 @@ extends CharacterBody2D
 
 
 const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
-const DASH_SPEED = 500
+const JUMP_VELOCITY = -400.0
+const DASH_SPEED = 1000
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-#@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-#@onready var marker_2d: Marker2D = $Marker2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_cooldown: Timer = $DashCooldown
 
@@ -18,7 +16,7 @@ var can_dash = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and not dashing:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
@@ -38,8 +36,9 @@ func _physics_process(delta: float) -> void:
 		$DashCooldown.start()
 	if direction and not is_dead: #TODO dash is stopped when no direction is pressed
 		if dashing:
-			velocity.x = current_dash_direction * DASH_SPEED
 			play_animations("dash")
+			velocity.x = current_dash_direction * DASH_SPEED
+			velocity.y = 0
 		else:
 			velocity.x = direction * SPEED
 			play_animations("run")
@@ -69,7 +68,6 @@ func play_animations(name: String) -> void:
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
-
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
