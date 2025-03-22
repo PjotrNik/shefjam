@@ -37,7 +37,7 @@ func Update(_delta: float):
 			if chance > 60:
 				Transitioned.emit(self, "Boss_Slash")
 			elif chance > 40:
-				Transitioned.emit(self, "Boss_Jump")
+				Transitioned.emit(self, "Boss_Platform_Jump")
 			else:
 				Transitioned.emit(self, "Boss_shockwave_phase2")
 		elif $"../..".phase == 1: 
