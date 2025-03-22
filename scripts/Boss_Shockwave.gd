@@ -9,6 +9,7 @@ func Exit():
 func Enter():
 	print ("Sending out shockwave")
 	$windup.start()
+	$"../../AnimatedSprite2D".play("windup_shock")
 	
 	var player_distance = get_tree().get_first_node_in_group("Player").position.x - $"../..".position.x
 	if player_distance > 0:

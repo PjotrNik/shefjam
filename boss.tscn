@@ -1,15 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=16 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
 [ext_resource type="Texture2D" uid="uid://db6ithmrecbhs" path="res://Sprites/wizard.png" id="2_ef0k6"]
+[ext_resource type="Texture2D" uid="uid://62jh3mdmk6fb" path="res://Sprites/wizard_attack.png" id="2_etj48"]
 [ext_resource type="Script" uid="uid://jw8k7lkr0c3t" path="res://scripts/State_machine.gd" id="2_skx2t"]
 [ext_resource type="Texture2D" uid="uid://dwlt12oo86wnm" path="res://Sprites/wizard_windup.png" id="3_ry61v"]
+[ext_resource type="Texture2D" uid="uid://bqjn4m3myd63t" path="res://Sprites/wizard_shock.png" id="5_h3lj5"]
 [ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
-[ext_resource type="Script" uid="uid://b306bpi44jcy0" path="res://scripts/boss_jump.gd" id="6_we8h1"]
+[ext_resource type="Script" path="res://scripts/boss_jump.gd" id="6_we8h1"]
 [ext_resource type="Script" uid="uid://drw05to0u7pus" path="res://scripts/Boss_Lob.gd" id="7_kvofc"]
-[ext_resource type="Script" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
-[ext_resource type="Script" uid="uid://cn4uekyo6ta6x" path="res://boss_health_manager.gd" id="10_kles1"]
+[ext_resource type="Script" uid="uid://cg4u21bhfrmcv" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
+[ext_resource type="Script" path="res://boss_health_manager.gd" id="10_kles1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
 radius = 38.0
@@ -17,6 +19,14 @@ height = 127.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_skx2t"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_etj48")
+}],
+"loop": true,
+"name": &"attack_slash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ef0k6")
@@ -31,6 +41,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"windup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_h3lj5")
+}],
+"loop": true,
+"name": &"windup_shock",
 "speed": 5.0
 }]
 
@@ -51,7 +69,7 @@ shape = SubResource("CapsuleShape2D_ef0k6")
 position = Vector2(0, -0.187506)
 scale = Vector2(2.25, 2.02148)
 sprite_frames = SubResource("SpriteFrames_skx2t")
-animation = &"windup"
+animation = &"windup_shock"
 metadata/_edit_lock_ = true
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -71,6 +89,9 @@ script = ExtResource("5_o1i15")
 metadata/_custom_type_script = "uid://cojanes0leprk"
 
 [node name="windup" type="Timer" parent="State_Machine/Boss_Slash"]
+one_shot = true
+
+[node name="delay" type="Timer" parent="State_Machine/Boss_Slash"]
 one_shot = true
 
 [node name="Boss_Jump" type="Node" parent="State_Machine"]
@@ -115,6 +136,7 @@ shape = SubResource("CapsuleShape2D_kles1")
 
 [connection signal="timeout" from="State_Machine/Boss_Walk/lob_timer" to="State_Machine/Boss_Walk" method="_on_lob_timer_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Slash/windup" to="State_Machine/Boss_Slash" method="_on_windup_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_Slash/delay" to="State_Machine/Boss_Slash" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Lob/windup" to="State_Machine/Boss_Lob" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Lob/delay" to="State_Machine/Boss_Lob" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Shockwave/windup" to="State_Machine/Boss_Shockwave" method="_on_windup_timeout"]

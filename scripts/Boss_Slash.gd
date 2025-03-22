@@ -29,7 +29,10 @@ func _on_windup_timeout():
 		instance.get_child(1).flip_h = true
 	else:
 		$"../../Attack Slash Left".add_child(instance)
-		
-	$"../../AnimatedSprite2D".play("default")
-	Transitioned.emit(self, "Boss_Walk")
+	$"../../AnimatedSprite2D".play("attack_slash")
+	$delay.start()
 	
+
+
+func _on_delay_timeout():
+	Transitioned.emit(self, "Boss_Walk")
