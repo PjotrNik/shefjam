@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=17 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://62jh3mdmk6fb" path="res://Sprites/wizard_attack.png" id="2_etj48"]
 [ext_resource type="Script" uid="uid://jw8k7lkr0c3t" path="res://scripts/State_machine.gd" id="2_skx2t"]
 [ext_resource type="Texture2D" uid="uid://dwlt12oo86wnm" path="res://Sprites/wizard_windup.png" id="3_ry61v"]
+[ext_resource type="Texture2D" uid="uid://g362c47svx1b" path="res://Sprites/wizard_eye.png" id="5_1s1j2"]
 [ext_resource type="Texture2D" uid="uid://bqjn4m3myd63t" path="res://Sprites/wizard_shock.png" id="5_h3lj5"]
 [ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
 [ext_resource type="Script" path="res://scripts/boss_jump.gd" id="6_we8h1"]
@@ -45,6 +46,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_1s1j2")
+}],
+"loop": true,
+"name": &"windup_lob",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_h3lj5")
 }],
 "loop": true,
@@ -69,7 +78,7 @@ shape = SubResource("CapsuleShape2D_ef0k6")
 position = Vector2(0, -0.187506)
 scale = Vector2(2.25, 2.02148)
 sprite_frames = SubResource("SpriteFrames_skx2t")
-animation = &"windup_shock"
+animation = &"windup_lob"
 metadata/_edit_lock_ = true
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
