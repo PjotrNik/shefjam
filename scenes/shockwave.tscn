@@ -85,7 +85,7 @@ position = Vector2(23.25, -22.9127)
 scale = Vector2(1.64844, 1.62227)
 sprite_frames = SubResource("SpriteFrames_32lff")
 autoplay = "default"
-frame_progress = 0.739069
+frame_progress = 0.0393479
 
 [node name="Timer" type="Timer" parent="."]
 
