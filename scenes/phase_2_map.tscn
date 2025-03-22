@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://dgfu6j6w6ewxv"]
+[gd_scene load_steps=6 format=4 uid="uid://dwoci5bm3vc24"]
 
 [ext_resource type="Texture2D" uid="uid://chp4lbkrfkg0b" path="res://Sprites/Temp_Tilemap.png" id="1_tar3s"]
 [ext_resource type="PackedScene" uid="uid://7t3ngei26bp6" path="res://boss.tscn" id="2_cdtcl"]

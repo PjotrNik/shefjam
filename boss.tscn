@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=14 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
@@ -8,7 +8,8 @@
 [ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
 [ext_resource type="Script" uid="uid://b306bpi44jcy0" path="res://scripts/boss_jump.gd" id="6_we8h1"]
 [ext_resource type="Script" uid="uid://drw05to0u7pus" path="res://scripts/Boss_Lob.gd" id="7_kvofc"]
-[ext_resource type="Script" uid="uid://cg4u21bhfrmcv" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
+[ext_resource type="Script" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
+[ext_resource type="Script" uid="uid://cn4uekyo6ta6x" path="res://boss_health_manager.gd" id="10_kles1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
 radius = 38.0
@@ -32,6 +33,10 @@ animations = [{
 "name": &"windup",
 "speed": 5.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kles1"]
+radius = 38.0
+height = 124.0
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 2
@@ -94,8 +99,26 @@ position = Vector2(119, 0)
 [node name="Attack Slash Left" type="Node2D" parent="."]
 position = Vector2(-119, 0)
 
+[node name="HealthManager" type="Node" parent="."]
+script = ExtResource("10_kles1")
+
+[node name="FlashTimer" type="Timer" parent="HealthManager"]
+wait_time = 0.1
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(10, 2)
+shape = SubResource("CapsuleShape2D_kles1")
+
 [connection signal="timeout" from="State_Machine/Boss_Walk/lob_timer" to="State_Machine/Boss_Walk" method="_on_lob_timer_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Slash/windup" to="State_Machine/Boss_Slash" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Lob/windup" to="State_Machine/Boss_Lob" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Lob/delay" to="State_Machine/Boss_Lob" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Shockwave/windup" to="State_Machine/Boss_Shockwave" method="_on_windup_timeout"]
+[connection signal="damage_taken" from="HealthManager" to="." method="_on_health_manager_damage_taken"]
+[connection signal="health_depleted" from="HealthManager" to="." method="_on_health_manager_health_depleted"]
+[connection signal="timeout" from="HealthManager/FlashTimer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="HealthManager" method="_on_hitbox_area_entered"]
