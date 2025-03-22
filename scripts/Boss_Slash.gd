@@ -1,6 +1,6 @@
 extends State
 class_name Boss_Slash
-var slash = preload("res://slash_attack.tscn")
+var slash = preload("res://scenes/slash_attack.tscn")
 
 func Exit():
 	pass
