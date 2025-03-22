@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	var current_dash_direction = direction
 	
 	# Dashing and movement
-	if Input.is_action_just_pressed("dash") and can_dash and direction != 0:
+	if Input.is_action_just_pressed("dash") and can_dash:
 		dashing = true
 		can_dash = false
 		dash_particles.emitting = true
@@ -71,22 +71,21 @@ func _physics_process(delta: float) -> void:
 		dash_cooldown.start()
 		dash_cooldown_timer.emit()
 	# TODO dash is stopped when no direction is pressed
-	if direction and not is_dead: 
+	if not is_dead: 
 		if dashing:
 			player_hit_box.set_deferred("monitoring", false)
-			velocity.x = current_dash_direction * DASH_SPEED
+			velocity.x = facing * DASH_SPEED
 			velocity.y = 0
-			if not (is_animation_playing("dash")):
-				animated_sprite_2d.play("dash") 
-				print("dash play")
-		else:
+			animated_sprite_2d.play("dash") 
+			print("dash play")
+		elif direction:
 			velocity.x = direction * SPEED
 			if not (is_animation_playing("dash") or is_animation_playing("hit")):
 				animated_sprite_2d.play("run")
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if not (is_animation_playing("hit") or is_animation_playing("death")):
-			animated_sprite_2d.play("idle")
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			if not (is_animation_playing("hit") or is_animation_playing("death") or is_animation_playing("dash")):
+				animated_sprite_2d.play("idle")
 	
 	# Flip player
 	if direction < 0 and not is_dead:
