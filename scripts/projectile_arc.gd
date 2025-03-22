@@ -17,7 +17,7 @@ func _physics_process(delta):
 		var q0 = start_pos.lerp(top_arc_pos, t)
 		var q1 = top_arc_pos.lerp(target_pos, t)
 		var r = q0.lerp(q1,t)
-		position = r
+		global_position = r
 		
 func set_target(target: Vector2):
 	target_pos = target
