@@ -9,6 +9,7 @@ func Exit():
 	
 
 func Enter():
+	print("Walking")
 	$"../..".current_speed = SPEED
 	#Decide when to lob
 	var rng = RandomNumberGenerator.new()
