@@ -4,6 +4,7 @@ extends Node
 var current_health
 
 signal health_depleted
+signal damage_taken
 
 func _ready():
 	current_health = max_health
@@ -13,3 +14,9 @@ func damage(amount):
 	
 	if(current_health <= 0):
 		health_depleted.emit()
+		
+
+
+func _on_player_hit_box_area_entered(area: Area2D) -> void:
+	damage(10)
+	damage_taken.emit()
