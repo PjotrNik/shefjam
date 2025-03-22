@@ -7,6 +7,8 @@ var direction = 0
 var base_sprite_modulate : Color
 var phase = 1
 
+signal phase_change(phase)
+
 func _ready():
 	base_sprite_modulate = $AnimatedSprite2D.modulate
 
@@ -35,6 +37,7 @@ func _on_health_manager_health_depleted():
 	if phase == 2:
 		queue_free()
 	phase += 1
+	phase_change.emit(phase)
 	$HealthManager.current_health = $HealthManager.max_health
 
 
