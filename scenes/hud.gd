@@ -21,10 +21,6 @@ func _ready() -> void:
 	health_manager = player.get_node("HealthManager")
 	health_manager.connect("damage_taken", _on_damage_taken)
 	player_health = health_manager.current_health
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	print(player_health)
 	
 func _on_damage_taken() -> void:
 	if player_health > 0:

@@ -32,6 +32,10 @@ var dashing = false
 var can_dash = true
 var facing = 1
 
+signal melee_cooldown_timer
+signal shotgun_cooldown_timer
+signal dash_cooldown_timer
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and not dashing:
@@ -65,6 +69,7 @@ func _physics_process(delta: float) -> void:
 		dash_particles.emitting = true
 		dash_timer.start()
 		dash_cooldown.start()
+		dash_cooldown_timer.emit()
 	# TODO dash is stopped when no direction is pressed
 	if direction and not is_dead: 
 		if dashing:
@@ -98,6 +103,7 @@ func _physics_process(delta: float) -> void:
 		melee_attack.set_collision_mask_value(2, true)
 		print("MELEEEEEE!!!!!")
 		melee_cooldown.start()
+		melee_cooldown_timer.emit()
 		
 	elif Input.is_action_just_pressed("ranged_attack") and not dashing and shotgun_cooldown.is_stopped():
 		velocity.x = (-direction) * SHOTGUN_RECOIL
@@ -106,6 +112,7 @@ func _physics_process(delta: float) -> void:
 		shotgun_attack.set_collision_mask_value(2, true)
 		print("SHOTGUNNNNN!!!!")
 		shotgun_cooldown.start()
+		shotgun_cooldown_timer.emit()
 	else:
 		shotgun_collision.set_deferred("disabled", true)
 		melee_collision.set_deferred("disabled", true)
