@@ -46,6 +46,7 @@ shape = SubResource("CapsuleShape2D_ef0k6")
 position = Vector2(0, -0.187506)
 scale = Vector2(2.25, 2.02148)
 sprite_frames = SubResource("SpriteFrames_skx2t")
+animation = &"windup"
 metadata/_edit_lock_ = true
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
