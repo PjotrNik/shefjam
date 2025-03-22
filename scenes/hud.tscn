@@ -126,10 +126,10 @@ value = 100.0
 rounded = true
 fill_mode = 5
 texture_progress = ExtResource("5_0i1j5")
-tint_progress = Color(0.137255, 0.137255, 0.137255, 0.901961)
+tint_progress = Color(0.533333, 0, 0, 0.882353)
 
 [node name="Timer" type="Timer" parent="VBoxContainer/MeleeAbility/MeleeIcon"]
-wait_time = 0.5
+one_shot = true
 
 [node name="ShotgunAbility" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -162,10 +162,11 @@ value = 100.0
 rounded = true
 fill_mode = 5
 texture_progress = ExtResource("7_0i1j5")
-tint_progress = Color(0.137255, 0.137255, 0.137255, 0.901961)
+tint_progress = Color(0.533333, 0, 0, 0.882353)
 
 [node name="Timer" type="Timer" parent="VBoxContainer/ShotgunAbility/ShotgunIcon"]
-wait_time = 1.5
+wait_time = 6.0
+one_shot = true
 
 [node name="DashAbility" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -198,7 +199,7 @@ value = 100.0
 rounded = true
 fill_mode = 5
 texture_progress = ExtResource("9_0i1j5")
-tint_progress = Color(0.137255, 0.137255, 0.137255, 0.901961)
+tint_progress = Color(0.533333, 0, 0, 0.882353)
 
 [node name="Timer" type="Timer" parent="VBoxContainer/DashAbility/DashIcon"]
-wait_time = 0.5
+one_shot = true

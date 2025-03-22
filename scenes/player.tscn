@@ -420,7 +420,6 @@ wait_time = 0.15
 one_shot = true
 
 [node name="DashCooldown" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -431,7 +430,6 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="MeleeCooldown" type="Timer" parent="MeleeAttack"]
-wait_time = 0.5
 one_shot = true
 
 [node name="MeleeAnimation" type="AnimatedSprite2D" parent="MeleeAttack"]
@@ -457,7 +455,7 @@ shape = SubResource("RectangleShape2D_qhqgy")
 disabled = true
 
 [node name="ShotgunCooldown" type="Timer" parent="ShotgunAttack"]
-wait_time = 1.5
+wait_time = 12.0
 one_shot = true
 
 [node name="PlayerHitBox" type="Area2D" parent="."]
