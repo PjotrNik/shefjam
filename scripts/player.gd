@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -1000.0
 const DASH_SPEED = 1000
-const SHOTGUN_RECOil = 500.0
+const SHOTGUN_RECOIL = 500.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
@@ -13,11 +13,17 @@ const SHOTGUN_RECOil = 500.0
 @onready var dust_scene = preload("res://scenes/dust.tscn")
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var shotgun_particles: CPUParticles2D = $ShotgunParticles
+@onready var shotgun_collision: CollisionShape2D = $ShotgunAttack/ShotgunCollision
+@onready var shotgun_attack: Area2D = $ShotgunAttack
+@onready var melee_collision: CollisionShape2D = $MeleeAttack/MeleeCollision
+@onready var melee_animation: AnimatedSprite2D = $MeleeAttack/MeleeAnimation
+@onready var melee_attack: Area2D = $MeleeAttack
 
 var is_dead = false
 var has_landed = true
 var dashing = false
 var can_dash = true
+var flipped = 1
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -41,7 +47,6 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction: -1, 0, +1
 	var direction = Input.get_axis("move_left", "move_right")
 	dash_particles.direction.x = -direction
-	shotgun_particles.direction.x = -1 if animated_sprite_2d.flip_h == true else 1
 	var current_dash_direction = direction
 	
 	# Dashing and movement
@@ -64,27 +69,46 @@ func _physics_process(delta: float) -> void:
 		play_animations("idle")
 	
 	# Flip player
-	var flipped = false
 	if direction < 0:
 		animated_sprite_2d.flip_h = true
+		flipped = -1
 	elif direction > 0:
 		animated_sprite_2d.flip_h = false
+		flipped = 1
 		
 	# Attacks
 	if Input.is_action_just_pressed("melee_attack") and not dashing:
-		pass
-		
-	if Input.is_action_just_pressed("ranged_attack") and not dashing:
-		velocity.x = (-direction) * SHOTGUN_RECOil
+		melee_collision.set_deferred("disabled", false)
+		melee_animation.play("slash")
+		melee_attack.set_collision_mask_value(2, true)
+		print("MELEEEEEE!!!!!")
+	elif Input.is_action_just_pressed("ranged_attack") and not dashing:
+		velocity.x = (-direction) * SHOTGUN_RECOIL
 		shotgun_particles.emitting = true
+		shotgun_collision.set_deferred("disabled", false)
+		shotgun_attack.set_collision_mask_value(2, true)
+		print("SHOTGUNNNNN!!!!")
+	else:
+		shotgun_collision.disabled = true
+		melee_collision.disabled = true
+		shotgun_collision.set_deferred("disabled", true)
+		melee_collision.set_deferred("disabled", true)
+		melee_attack.set_collision_mask_value(2, false)
+		shotgun_attack.set_collision_mask_value(2, false)
 		
+	shotgun_particles.direction.x = direction
+	shotgun_particles.position.x *= direction
+	melee_attack.scale.x = direction
+	melee_attack.position.x *= direction
+	shotgun_attack.scale.x = direction
+	shotgun_attack.position.x *= direction
 
 	move_and_slide()
 	
-func play_animations(name: String) -> void:
+func play_animations(anim_name: String) -> void:
 	pass
 	if is_on_floor():
-		animated_sprite_2d.play(name)
+		animated_sprite_2d.play(anim_name)
 	else:
 		animated_sprite_2d.play("jump")
 
