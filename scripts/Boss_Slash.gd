@@ -22,7 +22,10 @@ func Physics_Update(_delta: float):
 	
 func _on_windup_timeout():
 	var instance = slash.instantiate()
-	$"../../Attack Slash".add_child(instance)
+	if $"../..".direction == 1:
+		$"../../Attack Slash".add_child(instance)
+	else:
+		$"../../Attack Slash Left".add_child(instance)
 	Transitioned.emit(self, "Boss_Walk")
 	print ("Sending out attack")
 	
