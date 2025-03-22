@@ -13,3 +13,7 @@ func Update(_delta: float):
 func Physics_Update(_delta: float):
 	pass
 	
+
+
+func _on_windup_timeout():
+	pass # Replace with function body.

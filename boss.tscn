@@ -71,6 +71,9 @@ one_shot = true
 script = ExtResource("8_ef0k6")
 metadata/_custom_type_script = "uid://cg4u21bhfrmcv"
 
+[node name="windup" type="Timer" parent="State_Machine/Boss_Shockwave"]
+wait_time = 1.5
+
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 50)
 
