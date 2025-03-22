@@ -16,7 +16,7 @@ func damage(amount):
 		health_depleted.emit()
 
 func _on_hitbox_area_entered(area):
-	damage(5)
+	damage(10)
 	damage_taken.emit()
 
 func get_max_hp():
