@@ -26,6 +26,7 @@ func _on_windup_timeout():
 	var instance = slash.instantiate()
 	if $"../..".direction == 1:
 		$"../../Attack Slash".add_child(instance)
+		instance.get_child(1).flip_h = true
 	else:
 		$"../../Attack Slash Left".add_child(instance)
 		
