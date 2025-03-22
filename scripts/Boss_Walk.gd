@@ -32,14 +32,19 @@ func Update(_delta: float):
 	#Do attack, chance of slash or wave
 	if (abs(player_distance) < 160):
 		var chance = rng.randi_range(0,100)
-		if chance > 60:
-			Transitioned.emit(self, "Boss_Slash")
-		elif chance > 50:
-			Transitioned.emit(self, "Boss_shockwave_phase2")
-		elif chance > 40:
-			Transitioned.emit(self, "Boss_Jump")
+		
+		if $"../..".phase == 2:
+			if chance > 60:
+				Transitioned.emit(self, "Boss_Slash")
+			elif chance > 40:
+				Transitioned.emit(self, "Boss_Jump")
+			else:
+				Transitioned.emit(self, "Boss_shockwave_phase2")
 		else: 
-			Transitioned.emit(self, "Boss_Shockwave")
+			if chance > 40:
+				Transitioned.emit(self, "Boss_Slash")
+			else:
+				Transitioned.emit(self, "Boss_Shockwave")
 	
 	if player_distance > 0:
 		$"../..".direction = 1
