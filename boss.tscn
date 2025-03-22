@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=18 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://drw05to0u7pus" path="res://scripts/Boss_Lob.gd" id="7_kvofc"]
 [ext_resource type="Script" uid="uid://cg4u21bhfrmcv" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
 [ext_resource type="Script" uid="uid://cn4uekyo6ta6x" path="res://boss_health_manager.gd" id="10_kles1"]
+[ext_resource type="Script" uid="uid://dncbp1hk1jc80" path="res://boss_shockwave_phase_2.gd" id="13_km2bi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
 radius = 38.0
@@ -106,6 +107,7 @@ one_shot = true
 
 [node name="Boss_Jump" type="Node" parent="State_Machine"]
 script = ExtResource("6_we8h1")
+speed = 0.6
 
 [node name="Boss_Lob" type="Node" parent="State_Machine"]
 script = ExtResource("7_kvofc")
@@ -127,6 +129,15 @@ wait_time = 1.5
 one_shot = true
 
 [node name="delay" type="Timer" parent="State_Machine/Boss_Shockwave"]
+one_shot = true
+
+[node name="Boss_shockwave_phase2" type="Node" parent="State_Machine"]
+script = ExtResource("13_km2bi")
+
+[node name="windup" type="Timer" parent="State_Machine/Boss_shockwave_phase2"]
+one_shot = true
+
+[node name="delay" type="Timer" parent="State_Machine/Boss_shockwave_phase2"]
 one_shot = true
 
 [node name="Attack Slash" type="Node2D" parent="."]
@@ -158,6 +169,8 @@ position = Vector2(0, 50)
 [connection signal="timeout" from="State_Machine/Boss_Lob/delay" to="State_Machine/Boss_Lob" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Shockwave/windup" to="State_Machine/Boss_Shockwave" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Shockwave/delay" to="State_Machine/Boss_Shockwave" method="_on_delay_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_shockwave_phase2/windup" to="State_Machine/Boss_shockwave_phase2" method="_on_windup_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_shockwave_phase2/delay" to="State_Machine/Boss_shockwave_phase2" method="_on_delay_timeout"]
 [connection signal="damage_taken" from="HealthManager" to="." method="_on_health_manager_damage_taken"]
 [connection signal="health_depleted" from="HealthManager" to="." method="_on_health_manager_health_depleted"]
 [connection signal="timeout" from="HealthManager/FlashTimer" to="." method="_on_timer_timeout"]
