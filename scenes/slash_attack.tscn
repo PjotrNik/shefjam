@@ -1,21 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://f5l0phjtwy5s"]
 
-[ext_resource type="Script" uid="uid://c7o7l23h3mkjf" path="res://scripts/slash_attack.gd" id="1_78b5u"]
-[ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="1_rkgvo"]
+[ext_resource type="Script" path="res://scripts/slash_attack.gd" id="1_78b5u"]
+[ext_resource type="Texture2D" uid="uid://bwu0u7lqf4l56" path="res://Sprites/Fire_Slash.png" id="2_1iq1u"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_llgid"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fy1o3"]
+radius = 57.0
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_78b5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_llgid")
+position = Vector2(-1, 5)
+shape = SubResource("CircleShape2D_fy1o3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.75, 0.25)
-rotation = 3.11749
-scale = Vector2(0.175781, 0.175781)
-texture = ExtResource("1_rkgvo")
+position = Vector2(0, -1)
+scale = Vector2(2.11719, 2.11719)
+texture = ExtResource("2_1iq1u")
 
 [node name="death timer" type="Timer" parent="."]
 one_shot = true
