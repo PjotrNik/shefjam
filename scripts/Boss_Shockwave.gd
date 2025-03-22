@@ -11,12 +11,6 @@ func Enter():
 	$windup.start()
 	$"../../AnimatedSprite2D".play("windup_shock")
 	
-	var player_distance = get_tree().get_first_node_in_group("Player").position.x - $"../..".position.x
-	if player_distance > 0:
-		$"../..".direction = 1
-	else:
-		$"../..".direction = -1
-	
 func Update(_delta: float):
 	pass
 	
@@ -24,6 +18,13 @@ func Physics_Update(_delta: float):
 	pass
 	
 func _on_windup_timeout():
+	
+	var player_distance = get_tree().get_first_node_in_group("Player").position.x - $"../..".position.x
+	if player_distance > 0:
+		$"../..".direction = 1
+	else:
+		$"../..".direction = -1
+		
 	var instance = slash.instantiate()
 	var shock = wave.instantiate()
 	$"../../shockwave".add_child(shock)
