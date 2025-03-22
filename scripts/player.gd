@@ -23,6 +23,7 @@ const DEATH_VELOCITY = -500
 @onready var shotgun_cooldown: Timer = $ShotgunAttack/ShotgunCooldown
 @onready var body_collider: CollisionShape2D = $BodyCollider
 @onready var death_timer: Timer = $DeathTimer
+@onready var player_hit_box: Area2D = $PlayerHitBox
 
 var is_dead = false
 var has_landed = true
@@ -34,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and not dashing:
 		velocity += get_gravity() * delta * 2
-		if not (animated_sprite_2d.is_playing() and (animated_sprite_2d.animation == "dash" or animated_sprite_2d.animation == "hit")):
+		if not (is_animation_playing("dash") or is_animation_playing("hit")):
 			animated_sprite_2d.play("jump")
 		
 	if not has_landed and is_on_floor():
@@ -63,20 +64,22 @@ func _physics_process(delta: float) -> void:
 		dash_particles.emitting = true
 		dash_timer.start()
 		dash_cooldown.start()
-	if direction and not is_dead: #TODO dash is stopped when no direction is pressed
+	# TODO dash is stopped when no direction is pressed
+	if direction and not is_dead: 
 		if dashing:
+			player_hit_box.set_deferred("monitoring", false)
 			velocity.x = current_dash_direction * DASH_SPEED
 			velocity.y = 0
-			if not (animated_sprite_2d.is_playing() and animated_sprite_2d.animation == "dash"):
+			if not (is_animation_playing("dash")):
 				animated_sprite_2d.play("dash") 
 				print("dash play")
 		else:
 			velocity.x = direction * SPEED
-			if not (animated_sprite_2d.is_playing() and (animated_sprite_2d.animation == "dash" or animated_sprite_2d.animation == "hit")): 
+			if not (is_animation_playing("dash") or is_animation_playing("hit")):
 				animated_sprite_2d.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if not (animated_sprite_2d.is_playing() and animated_sprite_2d.animation == "hit"):
+		if not (is_animation_playing("hit")):
 			animated_sprite_2d.play("idle")
 	
 	# Flip player
@@ -103,8 +106,6 @@ func _physics_process(delta: float) -> void:
 		print("SHOTGUNNNNN!!!!")
 		shotgun_cooldown.start()
 	else:
-		shotgun_collision.disabled = true
-		melee_collision.disabled = true
 		shotgun_collision.set_deferred("disabled", true)
 		melee_collision.set_deferred("disabled", true)
 		melee_attack.set_collision_mask_value(2, false)
@@ -118,10 +119,15 @@ func _physics_process(delta: float) -> void:
 	shotgun_attack.position.x *= facing
 
 	move_and_slide()
-
+	
+func is_animation_playing(anim_name):
+	return animated_sprite_2d.is_playing() and animated_sprite_2d.animation == anim_name
+		
+		
 func _on_dash_timer_timeout() -> void:
 	dashing = false
 	dash_particles.emitting = false
+	player_hit_box.set_deferred("monitoring", true)
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
