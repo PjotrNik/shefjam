@@ -18,3 +18,5 @@ func _physics_process(delta):
 func _on_timer_timeout():
 	queue_free()
 	
+func set_start_pos(pos):
+	global_position = pos

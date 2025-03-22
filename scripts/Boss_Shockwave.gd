@@ -27,7 +27,8 @@ func _on_windup_timeout():
 		
 	var instance = slash.instantiate()
 	var shock = wave.instantiate()
-	$"../../shockwave".add_child(shock)
+	shock.set_start_pos($"../../shockwave".global_position)
+	get_tree().root.add_child(shock)
 	if $"../..".direction == -1:
 		shock.direction_right = false
 		
