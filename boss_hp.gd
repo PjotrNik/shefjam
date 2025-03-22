@@ -9,7 +9,7 @@ func _ready():
 
 func _process(delta):
 	#$HPBar/Health.scale.x = hp / max_hp
-	if ($"../Boss/HealthManager") == null:
+	if not $"../Boss/HealthManager":
 		hp == 0
 		$Container/Health.scale.x = 0
 	else:

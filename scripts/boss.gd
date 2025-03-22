@@ -32,7 +32,10 @@ func _on_health_manager_damage_taken():
 	$HealthManager/FlashTimer.start(0.1)
 
 func _on_health_manager_health_depleted():
-	queue_free()
+	if phase == 2:
+		queue_free()
+	phase += 1
+	$HealthManager.current_health = $HealthManager.max_health
 
 
 func _on_timer_timeout():

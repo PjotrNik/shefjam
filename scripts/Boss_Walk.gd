@@ -40,11 +40,14 @@ func Update(_delta: float):
 				Transitioned.emit(self, "Boss_Jump")
 			else:
 				Transitioned.emit(self, "Boss_shockwave_phase2")
-		else: 
+		elif $"../..".phase == 1: 
 			if chance > 40:
 				Transitioned.emit(self, "Boss_Slash")
 			else:
 				Transitioned.emit(self, "Boss_Shockwave")
+		else:
+			#tutorial states here
+			pass
 	
 	if player_distance > 0:
 		$"../..".direction = 1
