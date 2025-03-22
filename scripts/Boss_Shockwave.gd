@@ -7,6 +7,7 @@ func Exit():
 	pass
 
 func Enter():
+	print ("Sending out shockwave")
 	$windup.start()
 	
 	var player_distance = get_tree().get_first_node_in_group("Player").position.x - $"../..".position.x
@@ -32,4 +33,3 @@ func _on_windup_timeout():
 		shock.direction_right = false
 		$"../../Attack Slash Left".add_child(shock)
 	Transitioned.emit(self, "Boss_Walk")
-	print ("Sending out shockwave")

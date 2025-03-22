@@ -3,6 +3,7 @@ class_name Boss_Walk
 
 @export var SPEED = 150
 var player
+var rng
 
 func Exit():
 	$"../..".current_speed = 0
@@ -12,7 +13,7 @@ func Enter():
 	print("Walking")
 	$"../..".current_speed = SPEED
 	#Decide when to lob
-	var rng = RandomNumberGenerator.new()
+	rng = RandomNumberGenerator.new()
 	var time = rng.randf_range(1.5, 3)
 	$lob_timer.start(time)
 	
@@ -27,9 +28,13 @@ func Update(_delta: float):
 	var player_x = player.position.x
 	var player_distance = player_x - $"../..".position.x
 	
+	#Do attack, chance of slash or wave
 	if (abs(player_distance) < 80):
-		Transitioned.emit(self, "Boss_Slash")
-		
+		var chance = rng.randi_range(0,100)
+		if chance > 25:
+			Transitioned.emit(self, "Boss_Slash")
+		else: 
+			Transitioned.emit(self, "Boss_Shockwave")
 	
 	if player_distance > 0:
 		$"../..".direction = 1
