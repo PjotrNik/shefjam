@@ -9,7 +9,7 @@ var t = 0
 
 func _ready():
 	top_arc_pos = Vector2(((target_pos.x - start_pos.x) / 2 ), start_pos.y - 600)
-	pass
+	start_pos = global_position
 	
 func _physics_process(delta):
 	if t < 1:
@@ -21,4 +21,3 @@ func _physics_process(delta):
 		
 func set_target(target: Vector2):
 	target_pos = target
-	start_pos = global_position
