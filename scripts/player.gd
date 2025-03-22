@@ -9,28 +9,27 @@ const DASH_SPEED = 1000
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_cooldown: Timer = $DashCooldown
 @onready var dash_particles: CPUParticles2D = $DashParticles
-#@onready var dust_scene = preload("res://scenes/dust.tscn")
-@onready var dust: AnimatedSprite2D = $Marker2D/Dust
+@onready var dust_scene = preload("res://scenes/dust.tscn")
+@onready var dust: AnimatedSprite2D = $Dust
 @onready var marker_2d: Marker2D = $Marker2D
 
 var is_dead = false
 var has_landed = true
 var dashing = false
 var can_dash = true
-var is_grounded = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and not dashing:
 		velocity += get_gravity() * delta * 2
 		
-	if not is_grounded and is_on_floor():
-		dust.show()
-		dust.play("default")
-		#dust_instance.global_position = marker_2d.global_position
-		#get_parent().add_child(dust_instance)	
+	if not has_landed and is_on_floor():
+		var dust_instance = dust_scene.instantiate()
+		dust_instance.scale *= 1.62
+		dust_instance.global_position = marker_2d.global_position
+		get_parent().add_child(dust_instance)
 
-	is_grounded = is_on_floor()
+	has_landed = is_on_floor()
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
