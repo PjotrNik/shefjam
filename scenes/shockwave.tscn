@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfl0bsbn15ry4"]
 
-[ext_resource type="Script" uid="uid://6bnyrosscgea" path="res://scripts/shockwave.gd" id="1_238uk"]
+[ext_resource type="Script" path="res://scripts/shockwave.gd" id="1_238uk"]
 [ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="2_uo8p8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at7mu"]

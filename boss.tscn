@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=11 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="1_0bnu1"]
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
 [ext_resource type="Script" path="res://scripts/boss_jump.gd" id="6_we8h1"]
 [ext_resource type="Script" uid="uid://drw05to0u7pus" path="res://scripts/Boss_Lob.gd" id="7_kvofc"]
+[ext_resource type="Script" uid="uid://cg4u21bhfrmcv" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xxrv"]
 size = Vector2(114, 26)
@@ -65,6 +66,10 @@ one_shot = true
 
 [node name="delay" type="Timer" parent="State_Machine/Boss_Lob"]
 one_shot = true
+
+[node name="Boss_Shockwave" type="Node" parent="State_Machine"]
+script = ExtResource("8_ef0k6")
+metadata/_custom_type_script = "uid://cg4u21bhfrmcv"
 
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 50)
