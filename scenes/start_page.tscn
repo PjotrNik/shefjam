@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8vg5qwpmo23n"]
+[gd_scene load_steps=3 format=3 uid="uid://b8vg5qwpmo23n"]
 
 [ext_resource type="Script" uid="uid://ss5dm0tqchst" path="res://scenes/start_page.gd" id="1_mpx6a"]
+[ext_resource type="FontFile" uid="uid://b18f7hyexk7cb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ftwj8"]
 
 [node name="StartPage" type="Control"]
 layout_mode = 3
@@ -22,6 +23,7 @@ offset_left = -44.5
 offset_right = 44.5
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_ftwj8")
 theme_override_font_sizes/font_size = 60
 text = "SheffJam XI"
 horizontal_alignment = 1
@@ -39,6 +41,7 @@ offset_right = 293.0
 offset_bottom = 0.599976
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_ftwj8")
 theme_override_font_sizes/font_size = 60
 text = "Start"
 
