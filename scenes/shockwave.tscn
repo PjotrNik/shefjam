@@ -1,20 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfl0bsbn15ry4"]
+[gd_scene load_steps=13 format=3 uid="uid://dfl0bsbn15ry4"]
 
 [ext_resource type="Script" uid="uid://6bnyrosscgea" path="res://scripts/shockwave.gd" id="1_238uk"]
-[ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="2_uo8p8"]
+[ext_resource type="Texture2D" uid="uid://dchi4wk84aep2" path="res://Sprites/shockwave-Sheet.png" id="2_238uk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at7mu"]
 size = Vector2(123, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo8p8"]
+atlas = ExtResource("2_238uk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at7mu"]
+atlas = ExtResource("2_238uk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32lff"]
+atlas = ExtResource("2_238uk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvvyk"]
+atlas = ExtResource("2_238uk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqi8h"]
+atlas = ExtResource("2_238uk")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnoct"]
+atlas = ExtResource("2_238uk")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32tm2"]
+atlas = ExtResource("2_238uk")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udtwx"]
+atlas = ExtResource("2_238uk")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32lff"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_uo8p8")
+"texture": SubResource("AtlasTexture_uo8p8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at7mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32lff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvvyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqi8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnoct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32tm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udtwx")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 24.0
 }]
 
 [node name="Shockwave" type="Area2D"]
@@ -28,9 +81,11 @@ position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_at7mu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
-scale = Vector2(1, 0.5)
+position = Vector2(-1, -0.5)
+scale = Vector2(1.9375, 0.96875)
 sprite_frames = SubResource("SpriteFrames_32lff")
+autoplay = "default"
+frame_progress = 0.334509
 
 [node name="Timer" type="Timer" parent="."]
 
