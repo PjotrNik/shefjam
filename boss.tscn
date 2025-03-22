@@ -73,6 +73,7 @@ metadata/_custom_type_script = "uid://cg4u21bhfrmcv"
 
 [node name="windup" type="Timer" parent="State_Machine/Boss_Shockwave"]
 wait_time = 1.5
+one_shot = true
 
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 50)
@@ -84,3 +85,4 @@ position = Vector2(-119, 50)
 [connection signal="timeout" from="State_Machine/Boss_Slash/windup" to="State_Machine/Boss_Slash" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Lob/windup" to="State_Machine/Boss_Lob" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Lob/delay" to="State_Machine/Boss_Lob" method="_on_delay_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_Shockwave/windup" to="State_Machine/Boss_Shockwave" method="_on_windup_timeout"]
