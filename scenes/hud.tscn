@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://cxxt6wb121y1t" path="res://scenes/hud.gd" id="1_oo0fn"]
 [ext_resource type="FontFile" uid="uid://b18f7hyexk7cb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_6fi6k"]
 [ext_resource type="Script" uid="uid://cu473272g1i8p" path="res://scenes/melee_ability.gd" id="3_uo2fv"]
-[ext_resource type="Texture2D" uid="uid://dxpxmhr7g4vv4" path="res://Sprites/sword-cooldown.png" id="4_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://urfrnb53b0fv" path="res://Sprites/sword_pixelated.png" id="5_0i1j5"]
 [ext_resource type="Script" uid="uid://cfrhp4njh63mp" path="res://scenes/dash_ability.gd" id="6_5pdws"]
-[ext_resource type="Texture2D" uid="uid://dl3u55b5y5cum" path="res://Sprites/dash-cooldown.png" id="6_047uy"]
+[ext_resource type="Texture2D" uid="uid://xbaba1to31pc" path="res://Sprites/shotgun_pixelated.png" id="7_0i1j5"]
 [ext_resource type="Script" uid="uid://c4kaj7rdva7d7" path="res://scenes/shotgun_ability.gd" id="8_hd3ao"]
-[ext_resource type="Texture2D" uid="uid://r1l655k8l4g8" path="res://Sprites/shotgun-cooldown.png" id="9_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://7gxui03omi1q" path="res://Sprites/dash_pixelated.png" id="9_0i1j5"]
 
 [sub_resource type="Animation" id="Animation_5ysmq"]
 length = 0.001
@@ -113,7 +113,7 @@ uppercase = true
 
 [node name="MeleeIcon" type="TextureRect" parent="VBoxContainer/MeleeAbility"]
 layout_mode = 2
-texture = ExtResource("4_uo2fv")
+texture = ExtResource("5_0i1j5")
 expand_mode = 2
 stretch_mode = 4
 
@@ -125,8 +125,8 @@ scale = Vector2(0.11, 0.11)
 value = 100.0
 rounded = true
 fill_mode = 5
-texture_progress = ExtResource("4_uo2fv")
-tint_progress = Color(0.136826, 0.136826, 0.136826, 0.811765)
+texture_progress = ExtResource("5_0i1j5")
+tint_progress = Color(0.137255, 0.137255, 0.137255, 0.901961)
 
 [node name="Timer" type="Timer" parent="VBoxContainer/MeleeAbility/MeleeIcon"]
 wait_time = 0.5
@@ -149,7 +149,7 @@ uppercase = true
 
 [node name="ShotgunIcon" type="TextureRect" parent="VBoxContainer/ShotgunAbility"]
 layout_mode = 2
-texture = ExtResource("9_0i1j5")
+texture = ExtResource("7_0i1j5")
 expand_mode = 2
 stretch_mode = 4
 
@@ -161,8 +161,8 @@ scale = Vector2(0.11, 0.11)
 value = 100.0
 rounded = true
 fill_mode = 5
-texture_progress = ExtResource("9_0i1j5")
-tint_progress = Color(0.136826, 0.136826, 0.136826, 0.811765)
+texture_progress = ExtResource("7_0i1j5")
+tint_progress = Color(0.137255, 0.137255, 0.137255, 0.901961)
 
 [node name="Timer" type="Timer" parent="VBoxContainer/ShotgunAbility/ShotgunIcon"]
 wait_time = 1.5
@@ -185,20 +185,20 @@ uppercase = true
 
 [node name="DashIcon" type="TextureRect" parent="VBoxContainer/DashAbility"]
 layout_mode = 2
-texture = ExtResource("6_047uy")
+texture = ExtResource("9_0i1j5")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="DashCooldown" type="TextureProgressBar" parent="VBoxContainer/DashAbility/DashIcon"]
 layout_mode = 2
 offset_right = 527.0
-offset_bottom = 527.0
-scale = Vector2(0.11, 0.11)
+offset_bottom = 518.0
+scale = Vector2(0.111, 0.11)
 value = 100.0
 rounded = true
 fill_mode = 5
-texture_progress = ExtResource("6_047uy")
-tint_progress = Color(0.136826, 0.136826, 0.136826, 0.811765)
+texture_progress = ExtResource("9_0i1j5")
+tint_progress = Color(0.137255, 0.137255, 0.137255, 0.901961)
 
 [node name="Timer" type="Timer" parent="VBoxContainer/DashAbility/DashIcon"]
 wait_time = 0.5
