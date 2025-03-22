@@ -4,14 +4,15 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -1000.0
 const DASH_SPEED = 1000
+const SHOTGUN_RECOil = 500.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_cooldown: Timer = $DashCooldown
 @onready var dash_particles: CPUParticles2D = $DashParticles
 @onready var dust_scene = preload("res://scenes/dust.tscn")
-@onready var dust: AnimatedSprite2D = $Dust
 @onready var marker_2d: Marker2D = $Marker2D
+@onready var shotgun_particles: CPUParticles2D = $ShotgunParticles
 
 var is_dead = false
 var has_landed = true
@@ -40,8 +41,10 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction: -1, 0, +1
 	var direction = Input.get_axis("move_left", "move_right")
 	dash_particles.direction.x = -direction
+	shotgun_particles.direction.x = -1 if animated_sprite_2d.flip_h == true else 1
 	var current_dash_direction = direction
 	
+	# Dashing and movement
 	if Input.is_action_just_pressed("dash") and can_dash and direction != 0:
 		dashing = true
 		can_dash = false
@@ -66,6 +69,15 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 	elif direction > 0:
 		animated_sprite_2d.flip_h = false
+		
+	# Attacks
+	if Input.is_action_just_pressed("melee_attack") and not dashing:
+		pass
+		
+	if Input.is_action_just_pressed("ranged_attack") and not dashing:
+		velocity.x = (-direction) * SHOTGUN_RECOil
+		shotgun_particles.emitting = true
+		
 
 	move_and_slide()
 	
