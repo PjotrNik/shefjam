@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -1000.0
 const DASH_SPEED = 1000
 const SHOTGUN_RECOIL = 500.0
+const DEATH_VELOCITY = -500
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
@@ -20,12 +21,14 @@ const SHOTGUN_RECOIL = 500.0
 @onready var melee_attack: Area2D = $MeleeAttack
 @onready var melee_cooldown: Timer = $MeleeAttack/MeleeCooldown
 @onready var shotgun_cooldown: Timer = $ShotgunAttack/ShotgunCooldown
+@onready var body_collider: CollisionShape2D = $BodyCollider
+@onready var death_timer: Timer = $DeathTimer
 
 var is_dead = false
 var has_landed = true
 var dashing = false
 var can_dash = true
-var flipped = 1
+var facing = 1
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -77,12 +80,12 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("idle")
 	
 	# Flip player
-	if direction < 0:
+	if direction < 0 and not is_dead:
 		animated_sprite_2d.flip_h = true
-		flipped = -1
-	elif direction > 0:
+		facing = -1
+	elif direction > 0 and not is_dead:
 		animated_sprite_2d.flip_h = false
-		flipped = 1
+		facing = 1
 		
 	# Attacks
 	if Input.is_action_just_pressed("melee_attack") and not dashing and melee_cooldown.is_stopped():
@@ -106,13 +109,13 @@ func _physics_process(delta: float) -> void:
 		melee_collision.set_deferred("disabled", true)
 		melee_attack.set_collision_mask_value(2, false)
 		shotgun_attack.set_collision_mask_value(2, false)
-		
-	shotgun_particles.direction.x = direction
-	shotgun_particles.position.x *= direction
-	melee_attack.scale.x = direction
-	melee_attack.position.x *= direction
-	shotgun_attack.scale.x = direction
-	shotgun_attack.position.x *= direction
+	
+	shotgun_particles.direction.x = facing
+	shotgun_particles.position.x *= facing
+	melee_attack.scale.x = facing
+	melee_attack.position.x *= facing
+	shotgun_attack.scale.x = facing
+	shotgun_attack.position.x *= facing
 
 	move_and_slide()
 
@@ -129,4 +132,15 @@ func _on_health_manager_damage_taken() -> void:
 		animated_sprite_2d.play("hit")
 
 func _on_health_manager_health_depleted() -> void:
-	print("OH NO YOU DIED!!!!!")
+	if not is_dead:
+		print("You died!")
+		Engine.time_scale = 0.5
+		
+		velocity.y = DEATH_VELOCITY
+		is_dead = true
+		body_collider.set_deferred("disabled", true)
+		death_timer.start()
+
+func _on_death_timer_timeout() -> void:
+	Engine.time_scale = 1
+	get_tree().reload_current_scene() # Temporary
