@@ -114,6 +114,9 @@ script = ExtResource("8_ef0k6")
 wait_time = 1.5
 one_shot = true
 
+[node name="delay" type="Timer" parent="State_Machine/Boss_Shockwave"]
+one_shot = true
+
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 0)
 
@@ -134,7 +137,8 @@ collision_mask = 64
 position = Vector2(10, 2)
 shape = SubResource("CapsuleShape2D_kles1")
 
-[node name="attackwave" type="Node" parent="."]
+[node name="shockwave" type="Node2D" parent="."]
+position = Vector2(0, 50)
 
 [connection signal="timeout" from="State_Machine/Boss_Walk/lob_timer" to="State_Machine/Boss_Walk" method="_on_lob_timer_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Slash/windup" to="State_Machine/Boss_Slash" method="_on_windup_timeout"]
@@ -142,6 +146,7 @@ shape = SubResource("CapsuleShape2D_kles1")
 [connection signal="timeout" from="State_Machine/Boss_Lob/windup" to="State_Machine/Boss_Lob" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Lob/delay" to="State_Machine/Boss_Lob" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Shockwave/windup" to="State_Machine/Boss_Shockwave" method="_on_windup_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_Shockwave/delay" to="State_Machine/Boss_Shockwave" method="_on_delay_timeout"]
 [connection signal="damage_taken" from="HealthManager" to="." method="_on_health_manager_damage_taken"]
 [connection signal="health_depleted" from="HealthManager" to="." method="_on_health_manager_health_depleted"]
 [connection signal="timeout" from="HealthManager/FlashTimer" to="." method="_on_timer_timeout"]

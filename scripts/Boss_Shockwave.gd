@@ -26,9 +26,12 @@ func Physics_Update(_delta: float):
 func _on_windup_timeout():
 	var instance = slash.instantiate()
 	var shock = wave.instantiate()
-	if $"../..".direction == 1:
-		$"../..".add_child(shock)
-	else:
+	$"../../shockwave".add_child(shock)
+	if $"../..".direction == -1:
 		shock.direction_right = false
-		$"../..".add_child(shock)
+		
+	$"../../AnimatedSprite2D".play("attack_slash")
+	$delay.start()
+	
+func _on_delay_timeout():
 	Transitioned.emit(self, "Boss_Walk")
