@@ -12,6 +12,11 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 
 	velocity.x = current_speed * direction
+	
+	if (direction > 0):
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 
 	move_and_slide()
 	
