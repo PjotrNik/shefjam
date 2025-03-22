@@ -24,5 +24,5 @@ func _on_windup_timeout():
 	var instance = slash.instantiate()
 	$"../../Attack Slash".add_child(instance)
 	Transitioned.emit(self, "Boss_Walk")
-	print ("Tee Hee")
+	print ("Sending out attack")
 	

@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://7t3ngei26bp6"]
+
+[ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="1_0bnu1"]
+[ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
+[ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
+[ext_resource type="Script" uid="uid://jw8k7lkr0c3t" path="res://scripts/State_machine.gd" id="2_skx2t"]
+[ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
+[ext_resource type="Script" uid="uid://drw05to0u7pus" path="res://scripts/Boss_Lob.gd" id="6_we8h1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xxrv"]
+size = Vector2(114, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_skx2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0bnu1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_lnbgr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 51)
+shape = SubResource("RectangleShape2D_6xxrv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 51)
+scale = Vector2(1, 0.203125)
+sprite_frames = SubResource("SpriteFrames_skx2t")
+
+[node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_skx2t")
+initial_state = NodePath("Boss_Walk")
+metadata/_custom_type_script = "uid://jw8k7lkr0c3t"
+
+[node name="Boss_Walk" type="Node" parent="State_Machine"]
+script = ExtResource("2_6xxrv")
+metadata/_custom_type_script = "uid://sqvd67sa4jvk"
+
+[node name="Boss_Slash" type="Node" parent="State_Machine"]
+script = ExtResource("5_o1i15")
+metadata/_custom_type_script = "uid://cojanes0leprk"
+
+[node name="windup" type="Timer" parent="State_Machine/Boss_Slash"]
+one_shot = true
+
+[node name="Boss_Lob" type="Node" parent="State_Machine"]
+script = ExtResource("6_we8h1")
+metadata/_custom_type_script = "uid://drw05to0u7pus"
+
+[node name="Attack Slash" type="Node2D" parent="."]
+position = Vector2(119, 50)
+
+[connection signal="timeout" from="State_Machine/Boss_Slash/windup" to="State_Machine/Boss_Slash" method="_on_windup_timeout"]
