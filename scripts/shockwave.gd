@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 @export var speed : float
 @export var ttl : float
@@ -6,7 +6,6 @@ var direction_right = true
 
 func _ready():
 	$Timer.wait_time = ttl
-	position = Vector2(0,400)
 	if !direction_right:
 		$AnimatedSprite2D.flip_h
 	
