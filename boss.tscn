@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://db6ithmrecbhs" path="res://Sprites/wizard.png" id="2_ef0k6"]
 [ext_resource type="Script" uid="uid://jw8k7lkr0c3t" path="res://scripts/State_machine.gd" id="2_skx2t"]
 [ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
-[ext_resource type="Script" path="res://scripts/boss_jump.gd" id="6_we8h1"]
+[ext_resource type="Script" uid="uid://b306bpi44jcy0" path="res://scripts/boss_jump.gd" id="6_we8h1"]
 [ext_resource type="Script" uid="uid://drw05to0u7pus" path="res://scripts/Boss_Lob.gd" id="7_kvofc"]
 [ext_resource type="Script" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://f5l0phjtwy5s"]
 
 [ext_resource type="Script" path="res://scripts/slash_attack.gd" id="1_78b5u"]
-[ext_resource type="Texture2D" uid="uid://bwu0u7lqf4l56" path="res://Sprites/Fire_Slash.png" id="2_1iq1u"]
+[ext_resource type="Texture2D" uid="uid://w8s72vosf2hu" path="res://Sprites/Fire_Slash.png" id="2_1iq1u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fy1o3"]
 radius = 57.0
