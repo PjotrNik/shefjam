@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 300.0
+const JUMP_VELOCITY = -1000.0
 const DASH_SPEED = 1000
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -18,11 +18,13 @@ var can_dash = true
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and not dashing:
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 2
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	elif velocity.y <= 0 and Input.is_action_just_released("jump"):
+		velocity.y = -100
 
 	# Get the input direction: -1, 0, +1
 	#get input direction and handle movement
