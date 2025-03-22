@@ -7,6 +7,7 @@ func Exit():
 
 func Enter():
 	print ("Sending out attack")
+	$"../../AnimatedSprite2D".play("windup")
 	$windup.start()
 	
 	var player_distance = get_tree().get_first_node_in_group("Player").position.x - $"../..".position.x
@@ -27,5 +28,7 @@ func _on_windup_timeout():
 		$"../../Attack Slash".add_child(instance)
 	else:
 		$"../../Attack Slash Left".add_child(instance)
+		
+	$"../../AnimatedSprite2D".play("default")
 	Transitioned.emit(self, "Boss_Walk")
 	
