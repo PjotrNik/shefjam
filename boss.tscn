@@ -60,8 +60,16 @@ script = ExtResource("6_we8h1")
 script = ExtResource("7_kvofc")
 metadata/_custom_type_script = "uid://drw05to0u7pus"
 
+[node name="windup" type="Timer" parent="State_Machine/Boss_Lob"]
+one_shot = true
+
+[node name="delay" type="Timer" parent="State_Machine/Boss_Lob"]
+one_shot = true
+
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 50)
 
 [connection signal="timeout" from="State_Machine/Boss_Walk/lob_timer" to="State_Machine/Boss_Walk" method="_on_lob_timer_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Slash/windup" to="State_Machine/Boss_Slash" method="_on_windup_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_Lob/windup" to="State_Machine/Boss_Lob" method="_on_windup_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_Lob/delay" to="State_Machine/Boss_Lob" method="_on_delay_timeout"]
