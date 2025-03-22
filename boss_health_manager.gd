@@ -1,7 +1,7 @@
 extends Node
 
 @export var max_health = 100
-var current_health
+var current_health = max_health
 
 signal health_depleted
 signal damage_taken
@@ -18,3 +18,9 @@ func damage(amount):
 func _on_hitbox_area_entered(area):
 	damage(5)
 	damage_taken.emit()
+
+func get_max_hp():
+	return max_health
+
+func get_hp():
+	return current_health

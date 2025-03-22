@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://yq6n0xg1d2uo"]
+
+[ext_resource type="Script" uid="uid://o7hbguu8g0e1" path="res://boss_hp.gd" id="1_uih37"]
+[ext_resource type="Texture2D" uid="uid://cmn2genkpegn2" path="res://Sprites/Health_bar_back.png" id="2_7q1ur"]
+[ext_resource type="Texture2D" uid="uid://b8c08njj8opmh" path="res://Sprites/Hp_main_bar.png" id="3_hru0s"]
+[ext_resource type="Texture2D" uid="uid://c2y32fth2r0ht" path="res://Sprites/Health_bar_top.png" id="4_flrns"]
+
+[node name="BossHP" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uih37")
+
+[node name="Container" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.03
+anchor_right = 0.9
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Behind" type="TextureRect" parent="Container"]
+layout_mode = 2
+texture = ExtResource("2_7q1ur")
+
+[node name="Health" type="TextureRect" parent="Container"]
+layout_mode = 2
+texture = ExtResource("3_hru0s")
+
+[node name="Front" type="TextureRect" parent="Container"]
+layout_mode = 2
+texture = ExtResource("4_flrns")

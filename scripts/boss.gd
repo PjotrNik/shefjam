@@ -26,7 +26,6 @@ func _physics_process(delta):
 func set_speed(speed):
 	current_speed = speed
 
-
 func _on_health_manager_damage_taken():
 	$AnimatedSprite2D.modulate = Color(255,0,0)
 	$HealthManager/FlashTimer.start(0.1)
