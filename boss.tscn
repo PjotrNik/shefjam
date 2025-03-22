@@ -88,6 +88,7 @@ metadata/_custom_type_script = "uid://jw8k7lkr0c3t"
 
 [node name="Boss_Walk" type="Node" parent="State_Machine"]
 script = ExtResource("2_6xxrv")
+SPEED = 75
 metadata/_custom_type_script = "uid://sqvd67sa4jvk"
 
 [node name="lob_timer" type="Timer" parent="State_Machine/Boss_Walk"]
@@ -111,9 +112,11 @@ script = ExtResource("7_kvofc")
 metadata/_custom_type_script = "uid://drw05to0u7pus"
 
 [node name="windup" type="Timer" parent="State_Machine/Boss_Lob"]
+wait_time = 0.5
 one_shot = true
 
 [node name="delay" type="Timer" parent="State_Machine/Boss_Lob"]
+wait_time = 0.4
 one_shot = true
 
 [node name="Boss_Shockwave" type="Node" parent="State_Machine"]

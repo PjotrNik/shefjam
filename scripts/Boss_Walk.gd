@@ -15,7 +15,7 @@ func Enter():
 	$"../..".current_speed = SPEED
 	#Decide when to lob
 	rng = RandomNumberGenerator.new()
-	var time = rng.randf_range(0.75, 2)
+	var time = rng.randf_range(1.25, 2.25)
 	$lob_timer.start(time)
 	
 	#get player location
