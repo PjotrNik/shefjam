@@ -134,6 +134,8 @@ collision_mask = 64
 position = Vector2(10, 2)
 shape = SubResource("CapsuleShape2D_kles1")
 
+[node name="attackwave" type="Node" parent="."]
+
 [connection signal="timeout" from="State_Machine/Boss_Walk/lob_timer" to="State_Machine/Boss_Walk" method="_on_lob_timer_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Slash/windup" to="State_Machine/Boss_Slash" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Slash/delay" to="State_Machine/Boss_Slash" method="_on_delay_timeout"]

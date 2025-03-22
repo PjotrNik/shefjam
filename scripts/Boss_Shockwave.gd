@@ -27,10 +27,8 @@ func _on_windup_timeout():
 	var instance = slash.instantiate()
 	var shock = wave.instantiate()
 	if $"../..".direction == 1:
-		$"../../Attack Slash".add_child(instance)
-		$"../../Attack Slash".add_child(shock)
+		$"../..".add_child(shock)
 	else:
-		$"../../Attack Slash Left".add_child(instance)
 		shock.direction_right = false
-		$"../../Attack Slash Left".add_child(shock)
+		$"../..".add_child(shock)
 	Transitioned.emit(self, "Boss_Walk")
