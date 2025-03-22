@@ -80,11 +80,11 @@ func _physics_process(delta: float) -> void:
 			print("dash play")
 		elif direction:
 			velocity.x = direction * SPEED
-			if not (is_animation_playing("dash") or is_animation_playing("hit")):
+			if not (is_animation_playing("dash") or is_animation_playing("hit") or is_animation_playing("attack")):
 				animated_sprite_2d.play("run")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-			if not (is_animation_playing("hit") or is_animation_playing("death") or is_animation_playing("dash")):
+			if not (is_animation_playing("hit") or is_animation_playing("death") or is_animation_playing("dash") or is_animation_playing("attack")):
 				animated_sprite_2d.play("idle")
 	
 	# Flip player
@@ -101,6 +101,7 @@ func _physics_process(delta: float) -> void:
 		melee_animation.play("slash")
 		melee_attack.set_collision_mask_value(2, true)
 		print("MELEEEEEE!!!!!")
+		animated_sprite_2d.play("attack")
 		melee_cooldown.start()
 		melee_cooldown_timer.emit()
 		
