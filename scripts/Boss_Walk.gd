@@ -30,7 +30,7 @@ func Update(_delta: float):
 	var player_distance = player_x - $"../..".position.x
 	
 	#Do attack, chance of slash or wave
-	if (abs(player_distance) < 80):
+	if (abs(player_distance) < 160):
 		var chance = rng.randi_range(0,100)
 		if chance > 40:
 			Transitioned.emit(self, "Boss_Slash")
