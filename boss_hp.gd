@@ -9,4 +9,8 @@ func _ready():
 
 func _process(delta):
 	#$HPBar/Health.scale.x = hp / max_hp
-	$Container/Health.scale.x = $"../Boss/HealthManager".get_hp() / max_hp
+	if ($"../Boss/HealthManager") == null:
+		hp == 0
+		$Container/Health.scale.x = 0
+	else:
+		$Container/Health.scale.x = $"../Boss/HealthManager".get_hp() / max_hp

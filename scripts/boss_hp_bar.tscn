@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://yq6n0xg1d2uo"]
+[gd_scene load_steps=5 format=3 uid="uid://ckunfs2onxbhy"]
 
 [ext_resource type="Script" uid="uid://o7hbguu8g0e1" path="res://boss_hp.gd" id="1_uih37"]
 [ext_resource type="Texture2D" uid="uid://cmn2genkpegn2" path="res://Sprites/Health_bar_back.png" id="2_7q1ur"]
