@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dchi4wk84aep2" path="res://Sprites/shockwave-Sheet.png" id="2_238uk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at7mu"]
-size = Vector2(123, 63)
+size = Vector2(61, 49)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo8p8"]
 atlas = ExtResource("2_238uk")
@@ -77,15 +77,15 @@ speed = 300.0
 ttl = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -1.5)
+position = Vector2(2.5, 5.5)
 shape = SubResource("RectangleShape2D_at7mu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -0.5)
-scale = Vector2(1.9375, 0.96875)
+position = Vector2(2, -2)
+scale = Vector2(0.984375, 0.96875)
 sprite_frames = SubResource("SpriteFrames_32lff")
 autoplay = "default"
-frame_progress = 0.334509
+frame_progress = 0.0146416
 
 [node name="Timer" type="Timer" parent="."]
 
