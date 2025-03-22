@@ -24,6 +24,7 @@ const DEATH_VELOCITY = -500
 @onready var body_collider: CollisionShape2D = $BodyCollider
 @onready var death_timer: Timer = $DeathTimer
 @onready var player_hit_box: Area2D = $PlayerHitBox
+@onready var invun_timer: Timer = $InvunTimer
 
 var is_dead = false
 var has_landed = true
@@ -79,7 +80,7 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if not (is_animation_playing("hit")):
+		if not (is_animation_playing("hit") or is_animation_playing("death")):
 			animated_sprite_2d.play("idle")
 	
 	# Flip player
@@ -123,7 +124,6 @@ func _physics_process(delta: float) -> void:
 func is_animation_playing(anim_name):
 	return animated_sprite_2d.is_playing() and animated_sprite_2d.animation == anim_name
 		
-		
 func _on_dash_timer_timeout() -> void:
 	dashing = false
 	dash_particles.emitting = false
@@ -136,6 +136,8 @@ func _on_health_manager_damage_taken() -> void:
 	print("TAKEN DAMAGAE!!!")
 	if not (animated_sprite_2d.is_playing() and animated_sprite_2d.animation == "hit"):
 		animated_sprite_2d.play("hit")
+	invun_timer.start()
+	player_hit_box.set_deferred("monitoring", false)
 
 func _on_health_manager_health_depleted() -> void:
 	if not is_dead:
@@ -145,8 +147,13 @@ func _on_health_manager_health_depleted() -> void:
 		velocity.y = DEATH_VELOCITY
 		is_dead = true
 		body_collider.set_deferred("disabled", true)
+		animated_sprite_2d.play("death")
 		death_timer.start()
 
 func _on_death_timer_timeout() -> void:
 	Engine.time_scale = 1
 	get_tree().reload_current_scene() # Temporary
+
+
+func _on_invun_timer_timeout() -> void:
+	player_hit_box.set_deferred("monitoring", true)

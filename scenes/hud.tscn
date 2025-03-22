@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://byjpyoijhh4dt"]
+
+[ext_resource type="Texture2D" uid="uid://dduviwwsentug" path="res://Sprites/Full_Hp.png" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://cxxt6wb121y1t" path="res://scenes/hud.gd" id="1_oo0fn"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oo0fn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 251.0
+offset_bottom = 77.0
+
+[node name="Heart1" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ahhtf")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ahhtf")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ahhtf")
+expand_mode = 2

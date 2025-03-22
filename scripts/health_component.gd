@@ -1,6 +1,6 @@
 extends Node
 
-@export var max_health = 30
+@export var max_health = 3
 var current_health
 
 signal health_depleted
@@ -16,6 +16,6 @@ func damage(amount):
 		health_depleted.emit()
 
 func _on_player_hit_box_area_entered(area: Area2D) -> void:
-	damage(10)
+	damage(1)
 	damage_taken.emit()
 	
