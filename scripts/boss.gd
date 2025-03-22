@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -400.0
 var current_speed = 0
 var direction = 0
 var base_sprite_modulate : Color
-var phase = 1
+var phase = 0
 
 signal phase_change(phase)
 

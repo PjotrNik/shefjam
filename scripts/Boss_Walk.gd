@@ -32,8 +32,10 @@ func Update(_delta: float):
 	#Do attack, chance of slash or wave
 	if (abs(player_distance) < 160):
 		var chance = rng.randi_range(0,100)
-		
-		if $"../..".phase == 2:
+		if  $"../..".phase == 0:
+			print("TUTORIAL BOSS")
+			# Do nothing 
+		elif $"../..".phase == 2:
 			if chance > 60:
 				Transitioned.emit(self, "Boss_Slash")
 			elif chance > 40:
@@ -59,4 +61,5 @@ func Physics_Update(_delta: float):
 
 
 func _on_lob_timer_timeout():
-	Transitioned.emit(self, "Boss_Lob")
+	if  $"../..".phase != 0:
+		Transitioned.emit(self, "Boss_Lob")
