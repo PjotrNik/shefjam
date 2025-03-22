@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 var current_speed = 0
 var direction = 0
 var base_sprite_modulate : Color
+var phase = 1
 
 func _ready():
 	base_sprite_modulate = $AnimatedSprite2D.modulate
