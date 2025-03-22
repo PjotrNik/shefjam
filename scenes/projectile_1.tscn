@@ -6,10 +6,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ypg35"]
 radius = 31.0
 
-[node name="Projectile1" type="CharacterBody2D"]
+[node name="Projectile1" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
 script = ExtResource("1_duhtt")
 target_pos = Vector2(500, 400)
-projectile_speed = 0.4
+projectile_speed = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ypg35")
@@ -17,3 +19,5 @@ shape = SubResource("CircleShape2D_ypg35")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.492188, 0.492188)
 texture = ExtResource("2_skviv")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
