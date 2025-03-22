@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://g362c47svx1b" path="res://Sprites/wizard_eye.png" id="5_1s1j2"]
 [ext_resource type="Texture2D" uid="uid://bqjn4m3myd63t" path="res://Sprites/wizard_shock.png" id="5_h3lj5"]
 [ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
-[ext_resource type="Script" path="res://scripts/boss_jump.gd" id="6_we8h1"]
+[ext_resource type="Script" uid="uid://b306bpi44jcy0" path="res://scripts/boss_jump.gd" id="6_we8h1"]
 [ext_resource type="Script" uid="uid://drw05to0u7pus" path="res://scripts/Boss_Lob.gd" id="7_kvofc"]
 [ext_resource type="Script" uid="uid://cg4u21bhfrmcv" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
 [ext_resource type="Script" path="res://boss_health_manager.gd" id="10_kles1"]

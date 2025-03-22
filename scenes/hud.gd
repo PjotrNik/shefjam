@@ -2,6 +2,7 @@ extends Control
  
 @onready var player: CharacterBody2D = %Player
 @onready var h_box_container: HBoxContainer = $HBoxContainer
+@onready var heart_animation_player: AnimationPlayer = $HBoxContainer/HeartAnimationPlayer
 
 var normal_heart_path = "res://Sprites/Full_Hp.png"
 var empty_heart_path = "res://Sprites/Empty_Hp.png"
@@ -26,7 +27,9 @@ func _process(delta: float) -> void:
 	print(player_health)
 	
 func _on_damage_taken() -> void:
-	player_health -= 1
-	var current_heart = hearts[player_health]
-	current_heart.texture = load(empty_heart_path)
+	if player_health > 0:
+		player_health -= 1
+		heart_animation_player.play("shake")
+		var current_heart = hearts[player_health]
+		current_heart.texture = load(empty_heart_path)
 	
