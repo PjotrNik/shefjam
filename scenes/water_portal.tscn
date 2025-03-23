@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqkprgp1tovei"]
+
+[ext_resource type="Script" uid="uid://crxw2pmtpqrj4" path="res://water_portal.gd" id="1_hskuy"]
+[ext_resource type="Texture2D" uid="uid://cv7xynukenfgh" path="res://Sprites/Water_portal.png" id="2_4pdo1"]
+
+[node name="WaterPortal" type="Node2D"]
+script = ExtResource("1_hskuy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4pdo1")
+
+[node name="TTL" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="TTL" to="." method="_on_ttl_timeout"]

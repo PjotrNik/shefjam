@@ -265,7 +265,11 @@ one_shot = true
 one_shot = true
 
 [node name="attack_delay" type="Timer" parent="State_Machine/Boss_water_phase3"]
-wait_time = 0.4
+wait_time = 0.5
+one_shot = true
+
+[node name="portal_delay" type="Timer" parent="State_Machine/Boss_water_phase3"]
+wait_time = 0.5
 one_shot = true
 
 [node name="Boss_fire_phase3" type="Node" parent="State_Machine"]
@@ -309,5 +313,6 @@ wait_time = 0.2
 [connection signal="timeout" from="State_Machine/Boss_water_phase3/windup" to="State_Machine/Boss_water_phase3" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_water_phase3/delay" to="State_Machine/Boss_water_phase3" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_water_phase3/attack_delay" to="State_Machine/Boss_water_phase3" method="_on_attack_delay_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_water_phase3/portal_delay" to="State_Machine/Boss_water_phase3" method="_on_portal_delay_timeout"]
 [connection signal="area_entered" from="Hitbox" to="HealthManager" method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="PhaseFlashTimer" to="." method="_on_phase_flash_timer_timeout"]
