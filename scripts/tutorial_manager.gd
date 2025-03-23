@@ -12,7 +12,7 @@ var tutorials = [
 	"Welcome to hell.",
 	"Use the ARROW KEYS to move.",
 	"Practice using your abilites.",
-	"Try out some target practice.",
+	"Lets do some target practice.",
 	"Don't get too close!",
 ]
 
