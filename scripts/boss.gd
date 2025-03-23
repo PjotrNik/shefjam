@@ -64,3 +64,37 @@ func _on_phase_flash_timer_timeout():
 	
 func set_phase(phase1):
 	phase = phase1
+	
+func get_phase():
+	return phase
+
+func change_sprites(phase1, option):
+	if phase == 2:
+		if option == "fire":
+			$AnimatedSprite2D.play("p2_fire")
+		if option == "water":
+			$AnimatedSprite2D.play("p2_water")
+		if option == "root":
+			$AnimatedSprite2D.play("p2_root")
+		if option == "eye":
+			$AnimatedSprite2D.play("p2_eye")
+		if option == "default":
+			$AnimatedSprite2D.play("p2_default")
+		if option == "attack":
+			$AnimatedSprite2D.play("p2_attack")
+	else:
+		if option == "fire":
+			$AnimatedSprite2D.play("windup")
+		if option == "water":
+			$AnimatedSprite2D.play("windup_shock")
+		if option == "root":
+			$AnimatedSprite2D.play("windup_roots")
+		if option == "eye":
+			$AnimatedSprite2D.play("windup_lob")
+		if option == "default":
+			$AnimatedSprite2D.play("default")
+		if option == "attack":
+			$AnimatedSprite2D.play("attack_slash")
+			
+		
+		

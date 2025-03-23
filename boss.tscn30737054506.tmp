@@ -253,7 +253,6 @@ wait_time = 0.2
 [connection signal="timeout" from="State_Machine/Boss_Shockwave/delay" to="State_Machine/Boss_Shockwave" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_shockwave_phase2/windup" to="State_Machine/Boss_shockwave_phase2" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_shockwave_phase2/delay" to="State_Machine/Boss_shockwave_phase2" method="_on_delay_timeout"]
-[connection signal="timeout" from="State_Machine/Boss_Ground/windup" to="State_Machine/Boss_Ground" method="_on_windup_timeout"]
 [connection signal="damage_taken" from="HealthManager" to="." method="_on_health_manager_damage_taken"]
 [connection signal="health_depleted" from="HealthManager" to="." method="_on_health_manager_health_depleted"]
 [connection signal="timeout" from="HealthManager/FlashTimer" to="." method="_on_timer_timeout"]
