@@ -7,7 +7,7 @@ func Exit():
 
 func Enter():
 	print ("Sending out attack")
-	$"../../AnimatedSprite2D".play("windup")
+	$"../..".change_sprites($"../..".get_phase(),"fire")
 	$windup.start()
 	
 	var player_distance = get_tree().get_first_node_in_group("Player").position.x - $"../..".position.x
@@ -29,7 +29,7 @@ func _on_windup_timeout():
 		instance.get_child(1).flip_h = true
 	else:
 		$"../../Attack Slash Left".add_child(instance)
-	$"../../AnimatedSprite2D".play("attack_slash")
+	$"../..".change_sprites($"../..".get_phase(),"attack")
 	$delay.start()
 	
 

@@ -49,7 +49,6 @@ func _on_health_manager_health_depleted():
 func _on_timer_timeout():
 	$AnimatedSprite2D.modulate = base_sprite_modulate
 
-
 func _on_phase_flash_timer_timeout():
 	flash_count += 1
 	if flash_count < 7:

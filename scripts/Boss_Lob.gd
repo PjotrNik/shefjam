@@ -7,7 +7,7 @@ func Exit():
 
 func Enter():
 	$windup.start()
-	$"../../AnimatedSprite2D".play("windup_lob")
+	$"../..".change_sprites($"../..".get_phase(),"eye")
 	
 func Update(_delta: float):
 	pass
@@ -23,7 +23,7 @@ func _on_windup_timeout():
 	instance.set_target(player.global_position)
 	$"../..".add_child.call_deferred(instance)
 	print ("lob attack")
-	$"../../AnimatedSprite2D".play("attack_slash")
+	$"../..".change_sprites($"../..".get_phase(),"attack")
 	$delay.start()
 
 #after lob

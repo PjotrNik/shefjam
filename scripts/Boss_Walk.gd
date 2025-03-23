@@ -11,7 +11,7 @@ func Exit():
 
 func Enter():
 	print("Walking")
-	$"../../AnimatedSprite2D".play("default")
+	$"../..".change_sprites($"../..".get_phase(),"default")
 	$"../..".current_speed = SPEED
 	#Decide when to lob
 	rng = RandomNumberGenerator.new()

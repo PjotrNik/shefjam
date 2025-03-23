@@ -9,7 +9,7 @@ func Exit():
 func Enter():
 	print ("Sending out shockwave")
 	$windup.start()
-	$"../../AnimatedSprite2D".play("windup_shock")
+	$"../..".change_sprites($"../..".get_phase(),"water")
 	
 func Update(_delta: float):
 	pass
@@ -36,7 +36,7 @@ func _on_windup_timeout():
 			shock.direction_right = true
 		$"../..".direction = $"../..".direction * -1
 		
-	$"../../AnimatedSprite2D".play("attack_slash")
+	$"../..".change_sprites($"../..".get_phase(),"attack")
 	$delay.start()
 	
 func _on_delay_timeout():
