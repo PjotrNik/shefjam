@@ -4,7 +4,7 @@ extends HBoxContainer
 @onready var cooldown_bar: TextureProgressBar = $"MeleeIcon/MeleeCooldown"
 @onready var timer: Timer = $"MeleeIcon/Timer"
 
-@export var cooldown = 1.0
+@export var cooldown = 0.45
 var disabled = true
 
 # Called when the node enters the scene tree for the first time.

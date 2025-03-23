@@ -317,7 +317,7 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="MeleeCooldown" type="Timer" parent="MeleeAttack"]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
 
 [node name="MeleeAnimation" type="AnimatedSprite2D" parent="MeleeAttack"]
