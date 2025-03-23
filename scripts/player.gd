@@ -171,6 +171,9 @@ func _on_health_manager_health_depleted() -> void:
 
 func _on_death_timer_timeout() -> void:
 	Engine.time_scale = 1
+	var nodes = get_tree().get_nodes_in_group("Shockwave")
+	for i in nodes:
+		i.kill()
 	get_tree().reload_current_scene() # Temporary
 
 

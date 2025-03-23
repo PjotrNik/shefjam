@@ -20,3 +20,6 @@ func _on_timer_timeout():
 	
 func set_start_pos(pos):
 	global_position = pos
+	
+func kill():
+	queue_free()

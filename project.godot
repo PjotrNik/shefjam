@@ -24,6 +24,7 @@ project/assembly_name="shefjam"
 Player="The player"
 Boss="The boss"
 root="root attack"
+Shockwave="dsa"
 
 [input]
 
