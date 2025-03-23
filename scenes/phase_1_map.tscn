@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cmofkl4lb1c0n" path="res://Sprites/tile_map_extra.png" id="3_5hy0h"]
 [ext_resource type="PackedScene" uid="uid://big5kolfa5dqc" path="res://scenes/player.tscn" id="3_5jiho"]
 [ext_resource type="PackedScene" uid="uid://byjpyoijhh4dt" path="res://scenes/hud.tscn" id="4_bxbi8"]
-[ext_resource type="PackedScene" path="res://scripts/boss_hp_bar.tscn" id="5_5jiho"]
+[ext_resource type="PackedScene" uid="uid://ckunfs2onxbhy" path="res://scripts/boss_hp_bar.tscn" id="5_5jiho"]
 [ext_resource type="AudioStream" uid="uid://dkdeutq5h6ve6" path="res://assets/sounds/dramatic-synth-echo-43970.mp3" id="7_5hy0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejrpe"]

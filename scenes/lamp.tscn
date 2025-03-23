@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://4meicf77nom7"]
+
+[ext_resource type="Texture2D" path="res://Sprites/Lamp.png" id="1_hxjgs"]
+[ext_resource type="Texture2D" path="res://Sprites/point_light.webp" id="2_60c0r"]
+
+[node name="Lamp" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(3, 3)
+texture = ExtResource("1_hxjgs")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("2_60c0r")
