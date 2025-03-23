@@ -5,7 +5,7 @@ func Exit():
 	pass
 
 func Enter():
-	pass
+	print ("About to attack whole ground")
 	
 func Update(_delta: float):
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=21 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://g362c47svx1b" path="res://Sprites/wizard_eye.png" id="5_1s1j2"]
 [ext_resource type="Texture2D" uid="uid://bqjn4m3myd63t" path="res://Sprites/wizard_shock.png" id="5_h3lj5"]
 [ext_resource type="Script" uid="uid://cojanes0leprk" path="res://scripts/Boss_Slash.gd" id="5_o1i15"]
+[ext_resource type="Texture2D" uid="uid://b4n00s5c8a5mg" path="res://Sprites/wizard_roots.png" id="6_8arul"]
 [ext_resource type="Script" uid="uid://b306bpi44jcy0" path="res://scripts/boss_jump.gd" id="6_we8h1"]
 [ext_resource type="Script" uid="uid://drw05to0u7pus" path="res://scripts/Boss_Lob.gd" id="7_kvofc"]
 [ext_resource type="Script" uid="uid://cg4u21bhfrmcv" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
@@ -57,6 +58,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_8arul")
+}],
+"loop": true,
+"name": &"windup_roots",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_h3lj5")
 }],
 "loop": true,
@@ -81,7 +90,7 @@ shape = SubResource("CapsuleShape2D_ef0k6")
 position = Vector2(0, -0.187506)
 scale = Vector2(2.25, 2.02148)
 sprite_frames = SubResource("SpriteFrames_skx2t")
-animation = &"windup_lob"
+animation = &"windup_roots"
 metadata/_edit_lock_ = true
 
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -149,6 +158,13 @@ speed = 0.6
 [node name="Boss_Ground" type="Node" parent="State_Machine"]
 script = ExtResource("15_lc4na")
 metadata/_custom_type_script = "uid://dnsfk8lpjdo0a"
+
+[node name="windup" type="Timer" parent="State_Machine/Boss_Ground"]
+wait_time = 2.0
+one_shot = true
+
+[node name="delay" type="Timer" parent="State_Machine/Boss_Ground"]
+one_shot = true
 
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 0)
