@@ -80,11 +80,11 @@ func _physics_process(delta: float) -> void:
 			print("dash play")
 		elif direction:
 			velocity.x = direction * SPEED
-			if not (is_animation_playing("dash") or is_animation_playing("hit") or is_animation_playing("attack")):
+			if not (is_animation_playing("dash") or is_animation_playing("hit") or is_animation_playing("attack") or is_animation_playing("gun")):
 				animated_sprite_2d.play("run")
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-			if not (is_animation_playing("hit") or is_animation_playing("death") or is_animation_playing("dash") or is_animation_playing("attack")):
+			if not (is_animation_playing("hit") or is_animation_playing("death") or is_animation_playing("dash") or is_animation_playing("attack") or is_animation_playing("gun")):
 				animated_sprite_2d.play("idle")
 	
 	# Flip player
@@ -111,6 +111,7 @@ func _physics_process(delta: float) -> void:
 		shotgun_collision.set_deferred("disabled", false)
 		shotgun_attack.set_collision_mask_value(2, true)
 		print("SHOTGUNNNNN!!!!")
+		animated_sprite_2d.play("gun")
 		shotgun_cooldown.start()
 		shotgun_cooldown_timer.emit()
 	else:
