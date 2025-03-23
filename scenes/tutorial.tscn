@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://dwqax1ad83134"]
+[gd_scene load_steps=11 format=4 uid="uid://dwqax1ad83134"]
 
 [ext_resource type="Script" uid="uid://butcr2tm3ggb3" path="res://scripts/tutorial_manager.gd" id="1_6yjpi"]
 [ext_resource type="Texture2D" uid="uid://chp4lbkrfkg0b" path="res://Sprites/Temp_Tilemap.png" id="1_cq4me"]
+[ext_resource type="Script" uid="uid://dw4q4isy0yd5o" path="res://scenes/tutorial.gd" id="1_gbqnl"]
 [ext_resource type="PackedScene" uid="uid://big5kolfa5dqc" path="res://scenes/player.tscn" id="3_gbqnl"]
 [ext_resource type="PackedScene" uid="uid://byjpyoijhh4dt" path="res://scenes/hud.tscn" id="4_ckvwl"]
 [ext_resource type="FontFile" uid="uid://6q2ftdo4l1r0" path="res://assets/fonts/PixelOperator8.ttf" id="7_gbqnl"]
@@ -225,6 +226,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8x8qj")
 
 [node name="Tutorial" type="Node2D"]
+script = ExtResource("1_gbqnl")
 
 [node name="TutorialManager" type="Node" parent="."]
 script = ExtResource("1_6yjpi")
@@ -268,5 +270,5 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(985, 397)
+[node name="BossSpawn" type="Marker2D" parent="."]
+position = Vector2(953, 133)

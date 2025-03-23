@@ -22,6 +22,7 @@ project/assembly_name="shefjam"
 [global_group]
 
 Player="The player"
+Boss="The boss"
 
 [input]
 

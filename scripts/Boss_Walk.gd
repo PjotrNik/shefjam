@@ -36,7 +36,7 @@ func Update(_delta: float):
 		var chance = rng.randi_range(0,100)
 		if  $"../..".phase == 0:
 			print("TUTORIAL BOSS")
-			# Do nothing 
+			$"../..".velocity.x = 0
 		elif $"../..".phase == 2:
 			var jump_chance = 40
 			if player_y_distance < -300:
