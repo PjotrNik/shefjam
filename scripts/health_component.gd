@@ -1,5 +1,7 @@
 extends Node
 
+@onready var boss = null
+
 @export var max_health = 3
 var current_health
 
@@ -7,7 +9,8 @@ signal health_depleted
 signal damage_taken
 
 func _ready():
-	current_health = max_health
+	#current_health = max_health
+	pass
 	
 func damage(amount):
 	current_health -= amount

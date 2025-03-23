@@ -25,6 +25,7 @@ const DEATH_VELOCITY = -500
 @onready var death_timer: Timer = $DeathTimer
 @onready var player_hit_box: Area2D = $PlayerHitBox
 @onready var invun_timer: Timer = $InvunTimer
+@onready var health_manager: Node = $HealthManager
 
 var is_dead = false
 var has_landed = true
@@ -35,6 +36,9 @@ var facing = 1
 signal melee_cooldown_timer
 signal shotgun_cooldown_timer
 signal dash_cooldown_timer
+
+func _ready() -> void:
+	health_manager.current_health = health_manager.max_health
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

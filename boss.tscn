@@ -77,7 +77,7 @@ animations = [{
 radius = 38.0
 height = 124.0
 
-[node name="Boss" type="CharacterBody2D"]
+[node name="Boss" type="CharacterBody2D" groups=["Boss"]]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_lnbgr")
