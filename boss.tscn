@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=43 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
@@ -30,7 +30,7 @@
 [ext_resource type="Script" path="res://Boss_idle.gd" id="23_7ke2s"]
 [ext_resource type="AudioStream" uid="uid://u4vs2iprjgid" path="res://assets/sounds/boss sfx/water_splash.mp3" id="24_b3701"]
 [ext_resource type="AudioStream" uid="uid://d3iad01bwuato" path="res://assets/sounds/boss sfx/eye_windup.mp3" id="24_fdn2a"]
-[ext_resource type="Script" path="res://move_to_centre.gd" id="25_ppmbc"]
+[ext_resource type="Script" uid="uid://doo5lp4ya6bj0" path="res://move_to_centre.gd" id="25_ppmbc"]
 [ext_resource type="Script" path="res://boss_hang.gd" id="26_kw08n"]
 [ext_resource type="Script" uid="uid://c31ejw73ck7gl" path="res://boss_eyes_phase_3.gd" id="27_rdfxm"]
 [ext_resource type="AudioStream" uid="uid://dg6g278yohsuh" path="res://assets/sounds/water_windup.mp3" id="27_x1mfc"]
@@ -38,6 +38,7 @@
 [ext_resource type="Script" uid="uid://cnuxk46fymksg" path="res://boss_water_phase_3.gd" id="28_cm1kr"]
 [ext_resource type="Script" uid="uid://cmb282rtmkjt1" path="res://boss_fire_phase_3.gd" id="29_akhi5"]
 [ext_resource type="AudioStream" uid="uid://cufij0mbrfmxx" path="res://assets/sounds/boss sfx/thorn_Windup.mp3" id="31_vvoe5"]
+[ext_resource type="AudioStream" uid="uid://ew18ok5xwo00" path="res://assets/sounds/boss sfx/whispers.mp3" id="35_vomys"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
 radius = 38.0
@@ -282,6 +283,9 @@ script = ExtResource("23_7ke2s")
 [node name="Move_to_centre" type="Node" parent="State_Machine"]
 script = ExtResource("25_ppmbc")
 speed = 0.6
+
+[node name="whispers" type="AudioStreamPlayer2D" parent="State_Machine/Move_to_centre"]
+stream = ExtResource("35_vomys")
 
 [node name="Boss_Hang" type="Node" parent="State_Machine"]
 script = ExtResource("26_kw08n")

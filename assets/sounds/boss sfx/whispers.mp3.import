@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ew18ok5xwo00"
+path="res://.godot/imported/whispers.mp3-7f562d322e476fea5f968b0d82c501c4.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/boss sfx/whispers.mp3"
+dest_files=["res://.godot/imported/whispers.mp3-7f562d322e476fea5f968b0d82c501c4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

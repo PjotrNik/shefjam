@@ -11,6 +11,7 @@ func Exit():
 	t = 0
 	
 func Enter():
+	$whispers.play()
 	start_pos = $"../..".global_position
 	target_pos = Vector2(576,50)
 	top_arc_pos = Vector2((start_pos.x + (target_pos.x - start_pos.x) / 2 ), 700)
