@@ -127,7 +127,7 @@ script = ExtResource("7_kvofc")
 metadata/_custom_type_script = "uid://drw05to0u7pus"
 
 [node name="windup" type="Timer" parent="State_Machine/Boss_Lob"]
-wait_time = 0.4
+wait_time = 0.5
 one_shot = true
 
 [node name="delay" type="Timer" parent="State_Machine/Boss_Lob"]
@@ -166,7 +166,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="delay" type="Timer" parent="State_Machine/Boss_Ground"]
-wait_time = 0.5
 one_shot = true
 
 [node name="Attack Slash" type="Node2D" parent="."]
@@ -204,7 +203,6 @@ wait_time = 0.2
 [connection signal="timeout" from="State_Machine/Boss_shockwave_phase2/windup" to="State_Machine/Boss_shockwave_phase2" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_shockwave_phase2/delay" to="State_Machine/Boss_shockwave_phase2" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Ground/windup" to="State_Machine/Boss_Ground" method="_on_windup_timeout"]
-[connection signal="timeout" from="State_Machine/Boss_Ground/delay" to="State_Machine/Boss_Ground" method="_on_delay_timeout"]
 [connection signal="damage_taken" from="HealthManager" to="." method="_on_health_manager_damage_taken"]
 [connection signal="health_depleted" from="HealthManager" to="." method="_on_health_manager_health_depleted"]
 [connection signal="timeout" from="HealthManager/FlashTimer" to="." method="_on_timer_timeout"]
