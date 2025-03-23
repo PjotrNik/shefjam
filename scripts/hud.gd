@@ -28,4 +28,5 @@ func _on_damage_taken() -> void:
 		heart_animation_player.play("shake")
 		var current_heart = hearts[player_health]
 		current_heart.texture = load(empty_heart_path)
+		print("Oh NO damgte takenads!")
 	
