@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://bkw7vk2qitcyu"]
+[gd_scene load_steps=12 format=4 uid="uid://dwqax1ad83134"]
 
 [ext_resource type="Script" uid="uid://butcr2tm3ggb3" path="res://scripts/tutorial_manager.gd" id="1_6yjpi"]
 [ext_resource type="Texture2D" uid="uid://chp4lbkrfkg0b" path="res://Sprites/Temp_Tilemap.png" id="1_cq4me"]
 [ext_resource type="Script" uid="uid://dw4q4isy0yd5o" path="res://scenes/tutorial.gd" id="1_gbqnl"]
 [ext_resource type="PackedScene" uid="uid://big5kolfa5dqc" path="res://scenes/player.tscn" id="3_gbqnl"]
 [ext_resource type="PackedScene" uid="uid://byjpyoijhh4dt" path="res://scenes/hud.tscn" id="4_ckvwl"]
+[ext_resource type="AudioStream" uid="uid://dkdeutq5h6ve6" path="res://assets/sounds/dramatic-synth-echo-43970.mp3" id="7_ckvwl"]
 [ext_resource type="FontFile" uid="uid://6q2ftdo4l1r0" path="res://assets/fonts/PixelOperator8.ttf" id="7_gbqnl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejrpe"]
@@ -272,3 +273,6 @@ one_shot = true
 
 [node name="BossSpawn" type="Marker2D" parent="."]
 position = Vector2(953, 133)
+
+[node name="BossPhaseChange" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ckvwl")

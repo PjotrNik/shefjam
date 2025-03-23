@@ -41,6 +41,7 @@ func phase_transition(phase):
 func _on_health_manager_health_depleted():
 	if phase == 3:
 		get_tree().change_scene_to_file("res://scenes/end_UI.tscn")
+	
 	phase_transition(phase)
 	flash_count = 0
 	phase += 1

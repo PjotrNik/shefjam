@@ -14,7 +14,6 @@ var tutorials = [
 	"Practice using your abilites.",
 	"Try out some target practice.",
 	"Don't get too close!",
-	"God save the queen."
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +35,6 @@ func _ready() -> void:
 	get_parent().add_child(boss_hp_instance)
 	
 	await display_text(tutorials[4])
-	await display_text(tutorials[5])
 	
 	await get_tree().create_timer(5).timeout
 	tutor_label.text = ""
@@ -53,7 +51,7 @@ func display_text(text: String) -> void:
 	tween.tween_property(tutor_label, "visible_characters", 
 		tutor_label.get_total_character_count(), character_speed)
 	await tween.finished
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(3).timeout
 	print("FINISHED")
 
 func _on_boss_phase_change(phase):
