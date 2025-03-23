@@ -7,7 +7,7 @@ var count = 0
 var start_pos : Vector2
 
 func Exit():
-	pass
+	count = 0
 
 func Enter():
 	$windup.start()

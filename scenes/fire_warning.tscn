@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://s8i67ldoyp78"]
+
+[ext_resource type="Script" uid="uid://crxw2pmtpqrj4" path="res://water_portal.gd" id="1_pscau"]
+[ext_resource type="Texture2D" uid="uid://bu8u7k3f2mqaj" path="res://Sprites/fire_danger_forecast.png" id="2_qco0m"]
+
+[node name="FireWarning" type="Node2D"]
+script = ExtResource("1_pscau")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_qco0m")
+
+[node name="TTL" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="TTL" to="." method="_on_ttl_timeout"]
