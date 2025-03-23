@@ -12,8 +12,8 @@ func Exit():
 	
 func Enter():
 	start_pos = $"../..".global_position
-	target_pos = Vector2(576,200)
-	top_arc_pos = Vector2((start_pos.x + (target_pos.x - start_pos.x) / 2 ), 0)
+	target_pos = Vector2(576,50)
+	top_arc_pos = Vector2((start_pos.x + (target_pos.x - start_pos.x) / 2 ), 700)
 	
 func Update(_delta: float):
 	pass

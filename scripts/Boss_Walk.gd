@@ -54,6 +54,9 @@ func Update(_delta: float):
 		else:
 			#tutorial states here
 			pass
+
+	if $"../..".phase == 3:
+		Transitioned.emit(self, "Move_to_centre")
 	
 	if player_x_distance > 0:
 		$"../..".direction = 1

@@ -6,7 +6,9 @@ var player
 var rng
 
 func Exit():
+	$"../..".floating = true
 	$"../..".current_speed = 0
+	$"../..".velocity = Vector2(0,0)
 
 func Enter():
 	$"../..".change_sprites($"../..".get_phase(),"default")

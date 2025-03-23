@@ -5,8 +5,9 @@ const JUMP_VELOCITY = -400.0
 var current_speed = 0
 var direction = 0
 var base_sprite_modulate : Color
-var phase = 1
+var phase = 2
 var flash_count = 0
+var floating = false
 
 signal phase_change(phase)
 
@@ -15,7 +16,7 @@ func _ready():
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and not floating:
 		velocity += get_gravity() * delta
 
 	velocity.x = current_speed * direction
@@ -38,7 +39,7 @@ func phase_transition(phase):
 	$PhaseFlashTimer.start(0.2)
 
 func _on_health_manager_health_depleted():
-	if phase == 2:
+	if phase == 3:
 		queue_free()
 	phase_transition(phase)
 	flash_count = 0

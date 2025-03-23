@@ -236,6 +236,7 @@ script = ExtResource("23_7ke2s")
 
 [node name="Move_to_centre" type="Node" parent="State_Machine"]
 script = ExtResource("25_ppmbc")
+speed = 0.6
 
 [node name="Boss_Hang" type="Node" parent="State_Machine"]
 script = ExtResource("26_kw08n")
@@ -248,7 +249,7 @@ script = ExtResource("27_rdfxm")
 [node name="delay" type="Timer" parent="State_Machine/Boss_eyes_phase3"]
 
 [node name="attack_delay" type="Timer" parent="State_Machine/Boss_eyes_phase3"]
-wait_time = 0.2
+wait_time = 0.4
 
 [node name="Boss_water_phase3" type="Node" parent="State_Machine"]
 
