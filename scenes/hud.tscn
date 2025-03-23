@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://byjpyoijhh4dt"]
 
 [ext_resource type="Texture2D" uid="uid://dduviwwsentug" path="res://Sprites/Full_Hp.png" id="1_ahhtf"]
-[ext_resource type="Script" uid="uid://cxxt6wb121y1t" path="res://scenes/hud.gd" id="1_oo0fn"]
+[ext_resource type="Script" uid="uid://cxxt6wb121y1t" path="res://scripts/hud.gd" id="1_oo0fn"]
 [ext_resource type="FontFile" uid="uid://b18f7hyexk7cb" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_6fi6k"]
-[ext_resource type="Script" uid="uid://cu473272g1i8p" path="res://scenes/melee_ability.gd" id="3_uo2fv"]
+[ext_resource type="Script" uid="uid://cu473272g1i8p" path="res://scripts/melee_ability.gd" id="3_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://urfrnb53b0fv" path="res://Sprites/sword_pixelated.png" id="5_0i1j5"]
-[ext_resource type="Script" path="res://scenes/dash_ability.gd" id="6_5pdws"]
+[ext_resource type="Script" uid="uid://cfrhp4njh63mp" path="res://scripts/dash_ability.gd" id="6_5pdws"]
 [ext_resource type="Texture2D" uid="uid://xbaba1to31pc" path="res://Sprites/shotgun_pixelated.png" id="7_0i1j5"]
-[ext_resource type="Script" uid="uid://c4kaj7rdva7d7" path="res://scenes/shotgun_ability.gd" id="8_hd3ao"]
+[ext_resource type="Script" uid="uid://c4kaj7rdva7d7" path="res://scripts/shotgun_ability.gd" id="8_hd3ao"]
 [ext_resource type="Texture2D" uid="uid://7gxui03omi1q" path="res://Sprites/dash_pixelated.png" id="9_0i1j5"]
 
 [sub_resource type="Animation" id="Animation_5ysmq"]
