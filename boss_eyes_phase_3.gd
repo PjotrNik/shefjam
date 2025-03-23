@@ -5,7 +5,7 @@ var rng
 var count = 0
 
 func Exit():
-	pass
+	count = 0
 
 func Enter():
 	$windup.start()
@@ -21,6 +21,7 @@ func Physics_Update(_delta: float):
 #before lob
 func _on_windup_timeout():
 	$attack_delay.start()
+	$"../..".change_sprites($"../..".get_phase(),"attack")
 
 #after lob
 func _on_delay_timeout():
@@ -39,7 +40,6 @@ func _on_attack_delay_timeout():
 		var peak_y = rng.randi_range(500,1000)
 		instance.top_arc_pos = Vector2(peak_x,peak_y)
 		$"../..".add_child.call_deferred(instance)
-		$"../..".change_sprites($"../..".get_phase(),"attack")
 		$attack_delay.start()
 	else:
 		$delay.start()
