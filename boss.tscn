@@ -15,11 +15,7 @@
 [ext_resource type="Script" uid="uid://cg4u21bhfrmcv" path="res://scripts/Boss_Shockwave.gd" id="8_ef0k6"]
 [ext_resource type="Script" uid="uid://cn4uekyo6ta6x" path="res://boss_health_manager.gd" id="10_kles1"]
 [ext_resource type="Script" uid="uid://dncbp1hk1jc80" path="res://boss_shockwave_phase_2.gd" id="13_km2bi"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" path="res://boss_platform_jump.gd" id="14_u0duv"]
-=======
 [ext_resource type="Script" uid="uid://cep2oqo7urv1i" path="res://boss_platform_jump.gd" id="14_u0duv"]
->>>>>>> Stashed changes
 [ext_resource type="Script" path="res://scripts/Boss_Ground.gd" id="15_lc4na"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
@@ -161,6 +157,7 @@ speed = 0.6
 
 [node name="Boss_Ground" type="Node" parent="State_Machine"]
 script = ExtResource("15_lc4na")
+metadata/_custom_type_script = "uid://dnsfk8lpjdo0a"
 
 [node name="windup" type="Timer" parent="State_Machine/Boss_Ground"]
 wait_time = 2.0
