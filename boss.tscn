@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=33 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://boss_hang.gd" id="26_kw08n"]
 [ext_resource type="Script" path="res://boss_eyes_phase_3.gd" id="27_rdfxm"]
 [ext_resource type="Script" uid="uid://cnuxk46fymksg" path="res://boss_water_phase_3.gd" id="28_cm1kr"]
+[ext_resource type="Script" uid="uid://cmb282rtmkjt1" path="res://boss_fire_phase_3.gd" id="29_akhi5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
 radius = 38.0
@@ -273,6 +274,19 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Boss_fire_phase3" type="Node" parent="State_Machine"]
+script = ExtResource("29_akhi5")
+
+[node name="windup" type="Timer" parent="State_Machine/Boss_fire_phase3"]
+one_shot = true
+
+[node name="delay" type="Timer" parent="State_Machine/Boss_fire_phase3"]
+one_shot = true
+
+[node name="attack_delay" type="Timer" parent="State_Machine/Boss_fire_phase3"]
+one_shot = true
+
+[node name="warning_delay" type="Timer" parent="State_Machine/Boss_fire_phase3"]
+one_shot = true
 
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 0)
@@ -315,5 +329,9 @@ wait_time = 0.2
 [connection signal="timeout" from="State_Machine/Boss_water_phase3/delay" to="State_Machine/Boss_water_phase3" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_water_phase3/attack_delay" to="State_Machine/Boss_water_phase3" method="_on_attack_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_water_phase3/portal_delay" to="State_Machine/Boss_water_phase3" method="_on_portal_delay_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_fire_phase3/windup" to="State_Machine/Boss_fire_phase3" method="_on_windup_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_fire_phase3/delay" to="State_Machine/Boss_fire_phase3" method="_on_delay_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_fire_phase3/attack_delay" to="State_Machine/Boss_fire_phase3" method="_on_attack_delay_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_fire_phase3/warning_delay" to="State_Machine/Boss_fire_phase3" method="_on_warning_delay_timeout"]
 [connection signal="area_entered" from="Hitbox" to="HealthManager" method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="PhaseFlashTimer" to="." method="_on_phase_flash_timer_timeout"]
