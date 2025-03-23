@@ -3,9 +3,9 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Sprite2D.modulate.a = 0.5
+	$CollisionShape2D.set_deferred("disabled", true)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func turn_on():
+	$CollisionShape2D.set_deferred("disabled", false)
+	$Sprite2D.modulate.a = 1
