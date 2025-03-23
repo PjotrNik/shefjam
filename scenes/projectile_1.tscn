@@ -9,7 +9,6 @@ radius = 31.0
 [node name="Projectile1" type="Area2D"]
 collision_mask = 4
 script = ExtResource("1_duhtt")
-target_pos = Vector2(500, 400)
 projectile_speed = 0.6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
