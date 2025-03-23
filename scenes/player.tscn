@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://big5kolfa5dqc"]
+[gd_scene load_steps=44 format=3 uid="uid://big5kolfa5dqc"]
 
 [ext_resource type="Script" uid="uid://brejbwubl7kt6" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://bqeu3vis8gh4p" path="res://scripts/health_component.gd" id="2_dqkch"]
@@ -12,6 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://wyy1dlvud7ug" path="res://assets/sounds/michelbaradari-human/pain1.wav" id="11_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://bkiyi1ncubkn4" path="res://assets/sounds/michelbaradari-human/die2.wav" id="12_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://d2l3mnppkmd30" path="res://assets/sounds/explosion.wav" id="12_jej6c"]
+[ext_resource type="AudioStream" uid="uid://bgmhqhxlwd20v" path="res://assets/sounds/jump.wav" id="13_jej6c"]
+[ext_resource type="AudioStream" uid="uid://by55wggp7araw" path="res://assets/sounds/sword.mp3" id="14_f1ej7"]
+[ext_resource type="AudioStream" uid="uid://ddsd652iep1x7" path="res://assets/sounds/mouth-blow.mp3" id="15_oprun"]
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
 offsets = PackedFloat32Array(0.106667, 0.686667)
@@ -361,6 +364,15 @@ stream = ExtResource("12_3v2ag")
 [node name="GunSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_jej6c")
 volume_db = -5.0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_jej6c")
+
+[node name="SwordSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_f1ej7")
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_oprun")
 
 [connection signal="damage_taken" from="HealthManager" to="." method="_on_health_manager_damage_taken"]
 [connection signal="damage_taken" from="HealthManager" to="HealthManager" method="_on_damage_taken"]

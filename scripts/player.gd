@@ -60,6 +60,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$JumpSound.play()
 	elif velocity.y <= 0 and Input.is_action_just_released("jump"):
 		velocity.y = 0
 
@@ -75,6 +76,7 @@ func _physics_process(delta: float) -> void:
 		dash_particles.emitting = true
 		dash_timer.start()
 		dash_cooldown.start()
+		$DashSound.play()
 		dash_cooldown_timer.emit()
 		dash_lock = facing
 	# TODO dash is stopped when no direction is pressed
@@ -109,6 +111,7 @@ func _physics_process(delta: float) -> void:
 		melee_attack.set_collision_mask_value(2, true)
 		print("MELEEEEEE!!!!!")
 		animated_sprite_2d.play("attack")
+		$SwordSound.play()
 		melee_cooldown.start()
 		melee_cooldown_timer.emit()
 		
