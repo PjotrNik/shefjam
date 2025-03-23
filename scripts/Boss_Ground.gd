@@ -27,3 +27,14 @@ func _on_windup_timeout():
 		instance.global_position.x = 128 + (x * 32)
 		instance.global_position.y = 512
 		
+	$delay.start()
+
+
+func _on_delay_timeout():
+	print("Clearing Roots")
+	var all_roots = get_tree().get_nodes_in_group("root")
+	for root in all_roots:
+		root.queue_free()
+		print("root cleared")
+		
+	Transitioned.emit(self, "boss_lob")
