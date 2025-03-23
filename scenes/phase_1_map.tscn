@@ -248,9 +248,7 @@ tile_set = SubResource("TileSet_bxbi8")
 
 [node name="HUD" parent="." instance=ExtResource("4_bxbi8")]
 offset_left = 0.0
-offset_top = 6.0
 offset_right = 0.0
-offset_bottom = 6.0
 
 [node name="BossHP" parent="." instance=ExtResource("5_5jiho")]
 offset_right = 1152.0
