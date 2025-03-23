@@ -119,6 +119,7 @@ func _physics_process(delta: float) -> void:
 		shotgun_attack.set_collision_mask_value(2, true)
 		print("SHOTGUNNNNN!!!!")
 		animated_sprite_2d.play("gun")
+		$GunSound.play()
 		shotgun_cooldown.start()
 		shotgun_cooldown_timer.emit()
 	else:
