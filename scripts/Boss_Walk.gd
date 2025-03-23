@@ -37,14 +37,11 @@ func Update(_delta: float):
 	if (abs(player_x_distance) < 160):
 		var chance = rng.randi_range(0,100)
 		if $"../..".phase == 2:
-			var jump_chance = 35
-			if player_y_distance < -300:
-				jump_chance = 0
 			if chance > 85:
 				Transitioned.emit(self, "Boss_Ground")	
 			elif chance > 55:
 				Transitioned.emit(self, "Boss_shockwave_phase2")
-			elif chance > jump_chance:
+			elif chance > 35 and $"../..".global_position.y > 400:
 				Transitioned.emit(self, "Boss_Platform_Jump")
 			else:
 				Transitioned.emit(self, "Boss_Slash")
