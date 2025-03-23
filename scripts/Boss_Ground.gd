@@ -8,7 +8,7 @@ func Exit():
 func Enter():
 	print ("About to spawn roots")
 	$windup_roots.play()
-	$"../../AnimatedSprite2D".play("windup_roots")
+	$"../../AnimatedSprite2D".play("p2_root")
 	for x in range(30): 
 		print("spawned roots")
 		var instance = roots.instantiate()
