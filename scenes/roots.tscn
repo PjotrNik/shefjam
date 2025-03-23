@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3t560gr12b4y"]
 
-[ext_resource type="Texture2D" uid="uid://bl0f8nf2iox1x" path="res://icon.svg" id="1_pkiae"]
+[ext_resource type="Texture2D" uid="uid://crhkl74d5fsfl" path="res://Sprites/thorn.png" id="1_pkiae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox81i"]
 size = Vector2(32, 32)
@@ -14,5 +14,5 @@ shape = SubResource("RectangleShape2D_ox81i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-16, 16)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(2, 2)
 texture = ExtResource("1_pkiae")
