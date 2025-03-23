@@ -167,6 +167,9 @@ shape = SubResource("CapsuleShape2D_kles1")
 [node name="shockwave" type="Node2D" parent="."]
 position = Vector2(0, 50)
 
+[node name="PhaseFlashTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="timeout" from="State_Machine/Boss_Walk/lob_timer" to="State_Machine/Boss_Walk" method="_on_lob_timer_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Slash/windup" to="State_Machine/Boss_Slash" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Slash/delay" to="State_Machine/Boss_Slash" method="_on_delay_timeout"]
@@ -180,3 +183,4 @@ position = Vector2(0, 50)
 [connection signal="health_depleted" from="HealthManager" to="." method="_on_health_manager_health_depleted"]
 [connection signal="timeout" from="HealthManager/FlashTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="HealthManager" method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="PhaseFlashTimer" to="." method="_on_phase_flash_timer_timeout"]

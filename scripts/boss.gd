@@ -6,6 +6,7 @@ var current_speed = 0
 var direction = 0
 var base_sprite_modulate : Color
 var phase = 0
+var flash_count = 0
 
 signal phase_change(phase)
 
@@ -33,13 +34,31 @@ func _on_health_manager_damage_taken():
 	$AnimatedSprite2D.modulate = Color(255,0,0)
 	$HealthManager/FlashTimer.start(0.1)
 
+func phase_transition(phase):
+	$PhaseFlashTimer.start(0.2)
+
 func _on_health_manager_health_depleted():
 	if phase == 2:
 		queue_free()
+	phase_transition(phase)
+	flash_count = 0
 	phase += 1
 	phase_change.emit(phase)
 	$HealthManager.current_health = $HealthManager.max_health
 
-
 func _on_timer_timeout():
 	$AnimatedSprite2D.modulate = base_sprite_modulate
+
+
+func _on_phase_flash_timer_timeout():
+	flash_count += 1
+	if flash_count < 7:
+		if flash_count % 2 == 0:
+			$AnimatedSprite2D.modulate = base_sprite_modulate
+		else:
+			$AnimatedSprite2D.modulate = Color(255,255,255)
+	if flash_count == 6:
+		#$AnimatedSprite2D = $AnimatedSprite2D
+		pass
+	$PhaseFlashTimer.start(0.2)
+	
