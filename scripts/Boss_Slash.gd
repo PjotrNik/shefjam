@@ -9,6 +9,7 @@ func Enter():
 	print ("Sending out attack")
 	$"../..".change_sprites($"../..".get_phase(),"fire")
 	$windup.start()
+	$smoke.play()
 	
 	var player_distance = get_tree().get_first_node_in_group("Player").position.x - $"../..".position.x
 	if player_distance > 0:

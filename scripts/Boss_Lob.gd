@@ -7,7 +7,9 @@ func Exit():
 
 func Enter():
 	$windup.start()
+	$eye_windup.play()
 	$"../..".change_sprites($"../..".get_phase(),"eye")
+	$"../Boss_Ground/windup_roots".play()
 	
 func Update(_delta: float):
 	pass

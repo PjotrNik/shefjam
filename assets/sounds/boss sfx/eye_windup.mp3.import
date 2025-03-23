@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3iad01bwuato"
+path="res://.godot/imported/eye_windup.mp3-eb7eb1ea6bb92316fbb1418520e88b97.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/boss sfx/eye_windup.mp3"
+dest_files=["res://.godot/imported/eye_windup.mp3-eb7eb1ea6bb92316fbb1418520e88b97.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

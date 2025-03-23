@@ -7,6 +7,7 @@ func Exit():
 
 func Enter():
 	print ("About to spawn roots")
+	$windup_roots.play()
 	$"../../AnimatedSprite2D".play("windup_roots")
 	for x in range(30): 
 		print("spawned roots")
