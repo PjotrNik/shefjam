@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://ccijxglnqfs7n"]
+[gd_scene load_steps=19 format=4 uid="uid://ccijxglnqfs7n"]
 
 [ext_resource type="Texture2D" uid="uid://chp4lbkrfkg0b" path="res://Sprites/Temp_Tilemap.png" id="1_8x8qj"]
 [ext_resource type="Script" uid="uid://22ie1gfjecce" path="res://scenes/phase_1_map.gd" id="1_jo3k3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ckunfs2onxbhy" path="res://scripts/boss_hp_bar.tscn" id="5_5jiho"]
 [ext_resource type="AudioStream" uid="uid://dkdeutq5h6ve6" path="res://assets/sounds/dramatic-synth-echo-43970.mp3" id="7_5hy0h"]
 [ext_resource type="Texture2D" uid="uid://dxephc2u3ktpf" path="res://Sprites/Window_tiles.png" id="7_yipnp"]
+[ext_resource type="Texture2D" uid="uid://0mrtavunbx1s" path="res://Sprites/2d_light.webp" id="11_sjywf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejrpe"]
 resource_name = "Tile1"
@@ -304,5 +305,20 @@ offset_bottom = 648.0
 
 [node name="BossPhaseChange" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_5hy0h")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(580, 404)
+scale = Vector2(1, 1.76093)
+texture = ExtResource("11_sjywf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(320, 374.5)
+scale = Vector2(1, 1.52734)
+texture = ExtResource("11_sjywf")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(825, 387)
+scale = Vector2(1, 1.52734)
+texture = ExtResource("11_sjywf")
 
 [connection signal="phase_change" from="Boss" to="." method="_on_boss_phase_change"]
