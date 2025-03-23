@@ -249,9 +249,9 @@ tile_set = SubResource("TileSet_bxbi8")
 [node name="HUD" parent="." instance=ExtResource("4_ckvwl")]
 unique_name_in_owner = true
 offset_left = 0.0
-offset_top = -1.0
+offset_top = 6.0
 offset_right = 0.0
-offset_bottom = -1.0
+offset_bottom = 6.0
 
 [node name="TutorLabel" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
