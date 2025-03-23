@@ -375,6 +375,7 @@ stream = ExtResource("14_f1ej7")
 
 [node name="DashSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_oprun")
+volume_db = 10.0
 
 [connection signal="damage_taken" from="HealthManager" to="." method="_on_health_manager_damage_taken"]
 [connection signal="damage_taken" from="HealthManager" to="HealthManager" method="_on_damage_taken"]
