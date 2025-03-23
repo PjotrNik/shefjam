@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=15 format=4 uid="uid://ccijxglnqfs7n"]
-=======
-[gd_scene load_steps=12 format=4 uid="uid://d70mlq17hl2d"]
->>>>>>> Stashed changes
+[gd_scene load_steps=16 format=4 uid="uid://ccijxglnqfs7n"]
 
 [ext_resource type="Texture2D" uid="uid://chp4lbkrfkg0b" path="res://Sprites/Temp_Tilemap.png" id="1_8x8qj"]
 [ext_resource type="Script" uid="uid://22ie1gfjecce" path="res://scenes/phase_1_map.gd" id="1_jo3k3"]
@@ -11,12 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cmofkl4lb1c0n" path="res://Sprites/tile_map_extra.png" id="3_5hy0h"]
 [ext_resource type="PackedScene" uid="uid://big5kolfa5dqc" path="res://scenes/player.tscn" id="3_5jiho"]
 [ext_resource type="PackedScene" uid="uid://byjpyoijhh4dt" path="res://scenes/hud.tscn" id="4_bxbi8"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://ckunfs2onxbhy" path="res://scripts/boss_hp_bar.tscn" id="5_5jiho"]
-=======
 [ext_resource type="PackedScene" path="res://scripts/boss_hp_bar.tscn" id="5_5jiho"]
 [ext_resource type="AudioStream" uid="uid://dkdeutq5h6ve6" path="res://assets/sounds/dramatic-synth-echo-43970.mp3" id="7_5hy0h"]
->>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejrpe"]
 resource_name = "Tile1"
