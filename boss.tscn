@@ -249,6 +249,10 @@ one_shot = true
 [node name="delay" type="Timer" parent="State_Machine/Boss_shockwave_phase2"]
 one_shot = true
 
+[node name="water_windup" type="AudioStreamPlayer2D" parent="State_Machine/Boss_shockwave_phase2"]
+stream = ExtResource("27_x1mfc")
+pitch_scale = 2.5
+
 [node name="Boss_Platform_Jump" type="Node" parent="State_Machine"]
 script = ExtResource("14_u0duv")
 speed = 0.6
