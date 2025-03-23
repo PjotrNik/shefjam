@@ -10,4 +10,8 @@ func _on_boss_phase_change(phase):
 	print(phase)
 	if phase == 2:
 		var instance = phase2_platforms.instantiate()
+		instance.global_position = Vector2(0, -800)
 		self.add_child(instance)
+		var platforms = get_node("Platforms")
+		var tween = create_tween()
+		tween.tween_property(platforms, "position", Vector2(0,0), 1.3)
