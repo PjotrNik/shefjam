@@ -369,7 +369,6 @@ volume_db = -5.0
 stream = ExtResource("13_oprun")
 volume_db = 7.384
 pitch_scale = 1.26
-bus = &"Jump"
 
 [node name="SwordSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_f1ej7")

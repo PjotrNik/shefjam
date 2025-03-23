@@ -9,6 +9,7 @@ func Exit():
 func Enter():
 	print ("Sending out shockwave")
 	$windup.start()
+	$water_windup.play()
 	$"../..".change_sprites($"../..".get_phase(),"water")
 	
 func Update(_delta: float):
