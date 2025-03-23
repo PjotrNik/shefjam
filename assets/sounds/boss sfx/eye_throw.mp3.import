@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lkvj3k8i85un"
+path="res://.godot/imported/eye_throw.mp3-ab3c17b003eaf438c2ebde2e098b3485.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/boss sfx/eye_throw.mp3"
+dest_files=["res://.godot/imported/eye_throw.mp3-ab3c17b003eaf438c2ebde2e098b3485.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

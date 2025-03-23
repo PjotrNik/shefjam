@@ -11,6 +11,7 @@ func Exit():
 	t = 0
 	
 func Enter():
+	$jump.play()
 	start_pos = $"../..".global_position
 	var rng = RandomNumberGenerator.new()
 	var chance = rng.randi_range(0,100)

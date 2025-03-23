@@ -30,6 +30,7 @@ func _on_windup_timeout():
 	else:
 		$"../../Attack Slash Left".add_child(instance)
 	$"../..".change_sprites($"../..".get_phase(),"attack")
+	$flames.play()
 	$delay.start()
 	
 

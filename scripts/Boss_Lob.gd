@@ -18,6 +18,7 @@ func Physics_Update(_delta: float):
 
 #before lob
 func _on_windup_timeout():
+	$eye.play()
 	var player = get_tree().get_first_node_in_group("Player")
 	var instance = lob_projectile.instantiate()
 	instance.set_target(player.global_position)

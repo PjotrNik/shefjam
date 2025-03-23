@@ -37,6 +37,7 @@ func _on_windup_timeout():
 		$"../..".direction = $"../..".direction * -1
 		
 	$"../..".change_sprites($"../..".get_phase(),"attack")
+	$"../Boss_Shockwave/water".play()
 	$delay.start()
 	
 func _on_delay_timeout():

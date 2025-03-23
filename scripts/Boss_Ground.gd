@@ -26,6 +26,7 @@ func Physics_Update(_delta: float):
 #Make roots tangible
 func _on_windup_timeout():
 	print ("roots activating")
+	$roots.play()
 	var all_roots = get_tree().get_nodes_in_group("root")
 	for root in all_roots:
 		root.turn_on()

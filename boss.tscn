@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=38 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
@@ -23,10 +23,15 @@
 [ext_resource type="Script" uid="uid://dncbp1hk1jc80" path="res://boss_shockwave_phase_2.gd" id="13_km2bi"]
 [ext_resource type="Script" uid="uid://cep2oqo7urv1i" path="res://boss_platform_jump.gd" id="14_u0duv"]
 [ext_resource type="Script" uid="uid://dnsfk8lpjdo0a" path="res://scripts/Boss_Ground.gd" id="15_lc4na"]
-[ext_resource type="Script" uid="uid://cycsbrawihg0p" path="res://Boss_idle.gd" id="23_7ke2s"]
-[ext_resource type="Script" uid="uid://doo5lp4ya6bj0" path="res://move_to_centre.gd" id="25_ppmbc"]
-[ext_resource type="Script" uid="uid://ixa3vurlfg4j" path="res://boss_hang.gd" id="26_kw08n"]
-[ext_resource type="Script" uid="uid://c31ejw73ck7gl" path="res://boss_eyes_phase_3.gd" id="27_rdfxm"]
+[ext_resource type="AudioStream" uid="uid://crxkj02bh616u" path="res://assets/sounds/boss sfx/flamethrower.mp3" id="18_vwlhh"]
+[ext_resource type="AudioStream" uid="uid://5a0d5a86qn0n" path="res://assets/sounds/boss sfx/jump_boss.mp3" id="20_xvkcc"]
+[ext_resource type="AudioStream" uid="uid://lkvj3k8i85un" path="res://assets/sounds/boss sfx/eye_throw.mp3" id="22_oehbi"]
+[ext_resource type="Script" path="res://Boss_idle.gd" id="23_7ke2s"]
+[ext_resource type="AudioStream" uid="uid://u4vs2iprjgid" path="res://assets/sounds/boss sfx/water_splash.mp3" id="24_b3701"]
+[ext_resource type="Script" path="res://move_to_centre.gd" id="25_ppmbc"]
+[ext_resource type="Script" path="res://boss_hang.gd" id="26_kw08n"]
+[ext_resource type="Script" path="res://boss_eyes_phase_3.gd" id="27_rdfxm"]
+[ext_resource type="AudioStream" uid="uid://cdryqjt8osscl" path="res://assets/sounds/boss sfx/root_pop.mp3" id="28_7b5wb"]
 [ext_resource type="Script" uid="uid://cnuxk46fymksg" path="res://boss_water_phase_3.gd" id="28_cm1kr"]
 [ext_resource type="Script" path="res://boss_fire_phase_3.gd" id="29_akhi5"]
 
@@ -182,9 +187,15 @@ one_shot = true
 [node name="delay" type="Timer" parent="State_Machine/Boss_Slash"]
 one_shot = true
 
+[node name="flames" type="AudioStreamPlayer2D" parent="State_Machine/Boss_Slash"]
+stream = ExtResource("18_vwlhh")
+
 [node name="Boss_Jump" type="Node" parent="State_Machine"]
 script = ExtResource("6_we8h1")
 speed = 0.6
+
+[node name="jump" type="AudioStreamPlayer2D" parent="State_Machine/Boss_Jump"]
+stream = ExtResource("20_xvkcc")
 
 [node name="Boss_Lob" type="Node" parent="State_Machine"]
 script = ExtResource("7_kvofc")
@@ -198,6 +209,9 @@ one_shot = true
 wait_time = 0.4
 one_shot = true
 
+[node name="eye" type="AudioStreamPlayer2D" parent="State_Machine/Boss_Lob"]
+stream = ExtResource("22_oehbi")
+
 [node name="Boss_Shockwave" type="Node" parent="State_Machine"]
 script = ExtResource("8_ef0k6")
 
@@ -207,6 +221,9 @@ one_shot = true
 
 [node name="delay" type="Timer" parent="State_Machine/Boss_Shockwave"]
 one_shot = true
+
+[node name="water" type="AudioStreamPlayer2D" parent="State_Machine/Boss_Shockwave"]
+stream = ExtResource("24_b3701")
 
 [node name="Boss_shockwave_phase2" type="Node" parent="State_Machine"]
 script = ExtResource("13_km2bi")
@@ -230,6 +247,9 @@ one_shot = true
 
 [node name="delay" type="Timer" parent="State_Machine/Boss_Ground"]
 one_shot = true
+
+[node name="roots" type="AudioStreamPlayer2D" parent="State_Machine/Boss_Ground"]
+stream = ExtResource("28_7b5wb")
 
 [node name="Boss_Idle" type="Node" parent="State_Machine"]
 script = ExtResource("23_7ke2s")

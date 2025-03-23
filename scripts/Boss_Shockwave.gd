@@ -29,6 +29,7 @@ func _on_windup_timeout():
 	var shock = wave.instantiate()
 	shock.set_start_pos($"../../shockwave".global_position)
 	get_tree().root.add_child(shock)
+	$water.play()
 	if $"../..".direction == -1:
 		shock.direction_right = false
 		
