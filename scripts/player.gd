@@ -33,6 +33,8 @@ var dashing = false
 var can_dash = true
 var facing = 1
 
+var dash_lock = 0
+
 signal melee_cooldown_timer
 signal shotgun_cooldown_timer
 signal dash_cooldown_timer
@@ -74,11 +76,12 @@ func _physics_process(delta: float) -> void:
 		dash_timer.start()
 		dash_cooldown.start()
 		dash_cooldown_timer.emit()
+		dash_lock = facing
 	# TODO dash is stopped when no direction is pressed
 	if not is_dead: 
 		if dashing:
 			player_hit_box.set_deferred("monitoring", false)
-			velocity.x = facing * DASH_SPEED
+			velocity.x = dash_lock * DASH_SPEED
 			velocity.y = 0
 			animated_sprite_2d.play("dash") 
 			print("dash play")
