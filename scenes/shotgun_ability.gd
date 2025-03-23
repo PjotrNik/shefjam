@@ -4,7 +4,7 @@ extends HBoxContainer
 @onready var cooldown_bar: TextureProgressBar = $"ShotgunIcon/ShotgunCooldown"
 @onready var timer: Timer = $"ShotgunIcon/Timer"
 
-@export var cooldown = 6.0
+@export var cooldown = 4.0
 var disabled = true
 
 # Called when the node enters the scene tree for the first time.
