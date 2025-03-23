@@ -27,11 +27,11 @@
 [ext_resource type="AudioStream" uid="uid://bjkkd7f6u2twk" path="res://assets/sounds/boss sfx/fire_Windup.mp3" id="19_eeb72"]
 [ext_resource type="AudioStream" uid="uid://5a0d5a86qn0n" path="res://assets/sounds/boss sfx/jump_boss.mp3" id="20_xvkcc"]
 [ext_resource type="AudioStream" uid="uid://lkvj3k8i85un" path="res://assets/sounds/boss sfx/eye_throw.mp3" id="22_oehbi"]
-[ext_resource type="Script" uid="uid://cycsbrawihg0p" path="res://Boss_idle.gd" id="23_7ke2s"]
+[ext_resource type="Script" path="res://Boss_idle.gd" id="23_7ke2s"]
 [ext_resource type="AudioStream" uid="uid://u4vs2iprjgid" path="res://assets/sounds/boss sfx/water_splash.mp3" id="24_b3701"]
 [ext_resource type="AudioStream" uid="uid://d3iad01bwuato" path="res://assets/sounds/boss sfx/eye_windup.mp3" id="24_fdn2a"]
 [ext_resource type="Script" uid="uid://doo5lp4ya6bj0" path="res://move_to_centre.gd" id="25_ppmbc"]
-[ext_resource type="Script" uid="uid://ixa3vurlfg4j" path="res://boss_hang.gd" id="26_kw08n"]
+[ext_resource type="Script" path="res://boss_hang.gd" id="26_kw08n"]
 [ext_resource type="Script" uid="uid://c31ejw73ck7gl" path="res://boss_eyes_phase_3.gd" id="27_rdfxm"]
 [ext_resource type="AudioStream" uid="uid://dg6g278yohsuh" path="res://assets/sounds/water_windup.mp3" id="27_x1mfc"]
 [ext_resource type="AudioStream" uid="uid://cdryqjt8osscl" path="res://assets/sounds/boss sfx/root_pop.mp3" id="28_7b5wb"]
@@ -239,6 +239,7 @@ stream = ExtResource("24_b3701")
 
 [node name="water_windup" type="AudioStreamPlayer2D" parent="State_Machine/Boss_Shockwave"]
 stream = ExtResource("27_x1mfc")
+volume_db = 10.0
 pitch_scale = 2.0
 
 [node name="Boss_shockwave_phase2" type="Node" parent="State_Machine"]
@@ -252,6 +253,7 @@ one_shot = true
 
 [node name="water_windup" type="AudioStreamPlayer2D" parent="State_Machine/Boss_shockwave_phase2"]
 stream = ExtResource("27_x1mfc")
+volume_db = 10.0
 pitch_scale = 2.5
 
 [node name="Boss_Platform_Jump" type="Node" parent="State_Machine"]
@@ -326,6 +328,7 @@ one_shot = true
 
 [node name="water_windup" type="AudioStreamPlayer2D" parent="State_Machine/Boss_water_phase3"]
 stream = ExtResource("27_x1mfc")
+volume_db = 10.0
 pitch_scale = 3.35
 
 [node name="Boss_fire_phase3" type="Node" parent="State_Machine"]
