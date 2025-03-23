@@ -32,11 +32,11 @@
 [ext_resource type="AudioStream" uid="uid://d3iad01bwuato" path="res://assets/sounds/boss sfx/eye_windup.mp3" id="24_fdn2a"]
 [ext_resource type="Script" path="res://move_to_centre.gd" id="25_ppmbc"]
 [ext_resource type="Script" path="res://boss_hang.gd" id="26_kw08n"]
-[ext_resource type="Script" path="res://boss_eyes_phase_3.gd" id="27_rdfxm"]
+[ext_resource type="Script" uid="uid://c31ejw73ck7gl" path="res://boss_eyes_phase_3.gd" id="27_rdfxm"]
 [ext_resource type="AudioStream" uid="uid://dg6g278yohsuh" path="res://assets/sounds/water_windup.mp3" id="27_x1mfc"]
 [ext_resource type="AudioStream" uid="uid://cdryqjt8osscl" path="res://assets/sounds/boss sfx/root_pop.mp3" id="28_7b5wb"]
 [ext_resource type="Script" uid="uid://cnuxk46fymksg" path="res://boss_water_phase_3.gd" id="28_cm1kr"]
-[ext_resource type="Script" path="res://boss_fire_phase_3.gd" id="29_akhi5"]
+[ext_resource type="Script" uid="uid://cmb282rtmkjt1" path="res://boss_fire_phase_3.gd" id="29_akhi5"]
 [ext_resource type="AudioStream" uid="uid://cufij0mbrfmxx" path="res://assets/sounds/boss sfx/thorn_Windup.mp3" id="31_vvoe5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
@@ -299,6 +299,10 @@ one_shot = true
 wait_time = 0.4
 one_shot = true
 
+[node name="eye" type="AudioStreamPlayer2D" parent="State_Machine/Boss_eyes_phase3"]
+stream = ExtResource("22_oehbi")
+pitch_scale = 2.0
+
 [node name="Boss_water_phase3" type="Node" parent="State_Machine"]
 script = ExtResource("28_cm1kr")
 
@@ -315,6 +319,10 @@ one_shot = true
 [node name="portal_delay" type="Timer" parent="State_Machine/Boss_water_phase3"]
 wait_time = 0.5
 one_shot = true
+
+[node name="water_windup" type="AudioStreamPlayer2D" parent="State_Machine/Boss_water_phase3"]
+stream = ExtResource("27_x1mfc")
+pitch_scale = 3.35
 
 [node name="Boss_fire_phase3" type="Node" parent="State_Machine"]
 script = ExtResource("29_akhi5")

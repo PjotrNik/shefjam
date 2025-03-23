@@ -67,6 +67,7 @@ func _on_attack_delay_timeout():
 		get_tree().root.add_child(warn)
 		warn.global_position = Vector2(834, y_ax)
 	
+	$"../Boss_Slash/flames".play()
 	if count == 1:
 		$delay.start()
 	else:
@@ -77,6 +78,8 @@ func _on_attack_delay_timeout():
 
 
 func _on_warning_delay_timeout():
+	
+	$"../Boss_Slash/smoke".play()
 	
 	if order != 1:
 		var y_ax = 245

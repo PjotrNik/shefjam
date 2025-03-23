@@ -28,6 +28,7 @@ func _on_delay_timeout():
 
 func _on_attack_delay_timeout():
 	var wave = wave.instantiate()
+	$"../Boss_Shockwave/water".play()
 		
 	if count % 2 == 0:
 		wave.direction_right = false
@@ -57,6 +58,7 @@ func _on_portal_delay_timeout():
 			start_pos.x = 150
 		
 		var instance = portal.instantiate()
+		$water_windup.play()
 		instance.global_position = start_pos
 		get_tree().root.add_child(instance)
 		

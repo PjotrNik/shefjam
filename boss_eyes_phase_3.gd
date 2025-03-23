@@ -31,6 +31,7 @@ func _on_attack_delay_timeout():
 	if count < 8:
 		count += 1
 		var instance = lob_projectile.instantiate()
+		$eye.play()
 		rng = RandomNumberGenerator.new()
 		
 		var target_x = rng.randi_range(-300,1400)
