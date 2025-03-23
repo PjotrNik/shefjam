@@ -1,6 +1,5 @@
-[gd_scene load_steps=42 format=3 uid="uid://big5kolfa5dqc"]
+[gd_scene load_steps=40 format=3 uid="uid://big5kolfa5dqc"]
 
-[ext_resource type="Texture2D" uid="uid://jagwwxtjh3v7" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://brejbwubl7kt6" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://bqeu3vis8gh4p" path="res://scripts/health_component.gd" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cvonkj38j834e" path="res://Sprites/pixel_art_sword_slash_sprites.png" id="3_qhqgy"]
@@ -15,7 +14,7 @@
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
 offsets = PackedFloat32Array(0.106667, 0.686667)
-colors = PackedColorArray(0.0392157, 0.439216, 0.188235, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.882353, 0.564706, 0.309804, 1, 1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
 atlas = ExtResource("3_smehm")
@@ -40,10 +39,6 @@ region = Rect2(64, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
 atlas = ExtResource("5_tuyoq")
 region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0pev8"]
-atlas = ExtResource("1_3vyb7")
-region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
 atlas = ExtResource("7_ur7pv")
@@ -129,15 +124,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0pev8")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -164,7 +151,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
-size = Vector2(8, 13)
+size = Vector2(9, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("3_qhqgy")
@@ -247,7 +234,7 @@ radius = 19.0263
 size = Vector2(61, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(9, 12)
+size = Vector2(9.31186, 6.6107)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 4
@@ -293,14 +280,15 @@ scale_amount_max = 4.1
 color = Color(1, 1, 0.364706, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 1.13687e-13)
-scale = Vector2(0.21875, 0.21875)
+position = Vector2(5.96046e-08, 2.71051e-20)
+scale = Vector2(0.284148, 0.284148)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.935442
 
 [node name="BodyCollider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_3vyb7")
 
 [node name="DashTimer" type="Timer" parent="."]
@@ -345,13 +333,15 @@ shape = SubResource("RectangleShape2D_qhqgy")
 disabled = true
 
 [node name="ShotgunCooldown" type="Timer" parent="ShotgunAttack"]
-wait_time = 1.5
+wait_time = 4.0
 one_shot = true
 
 [node name="PlayerHitBox" type="Area2D" parent="."]
+scale = Vector2(0.96651, 1.96651)
 
 [node name="PlayerHitBoxCollision" type="CollisionShape2D" parent="PlayerHitBox"]
-position = Vector2(0.5, 0)
+position = Vector2(-0.517325, 1.27129)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="DeathTimer" type="Timer" parent="."]

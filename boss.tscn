@@ -17,6 +17,8 @@
 [ext_resource type="Script" uid="uid://dncbp1hk1jc80" path="res://boss_shockwave_phase_2.gd" id="13_km2bi"]
 [ext_resource type="Script" uid="uid://cep2oqo7urv1i" path="res://boss_platform_jump.gd" id="14_u0duv"]
 [ext_resource type="Script" path="res://scripts/Boss_Ground.gd" id="15_lc4na"]
+[ext_resource type="Script" path="res://boss_platform_jump.gd" id="14_u0duv"]
+[ext_resource type="Script" uid="uid://dnsfk8lpjdo0a" path="res://scripts/Boss_Ground.gd" id="15_lc4na"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
 radius = 38.0

@@ -165,7 +165,6 @@ texture_progress = ExtResource("7_0i1j5")
 tint_progress = Color(0.533333, 0, 0, 0.882353)
 
 [node name="Timer" type="Timer" parent="VBoxContainer/ShotgunAbility/ShotgunIcon"]
-wait_time = 6.0
 one_shot = true
 
 [node name="DashAbility" type="HBoxContainer" parent="VBoxContainer"]
