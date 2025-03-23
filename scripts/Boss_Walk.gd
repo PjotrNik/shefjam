@@ -27,21 +27,26 @@ func Enter():
 	
 func Update(_delta: float):
 	var player_x = player.position.x
-	var player_distance = player_x - $"../..".position.x
+	var player_y = player.position.y
+	var player_x_distance = player_x - $"../..".position.x
+	var player_y_distance = player_y - $"../..".position.y
 	
 	#Do attack, chance of slash or wave
-	if (abs(player_distance) < 160):
+	if (abs(player_x_distance) < 160):
 		var chance = rng.randi_range(0,100)
 		if  $"../..".phase == 0:
 			print("TUTORIAL BOSS")
 			# Do nothing 
 		elif $"../..".phase == 2:
+			var jump_chance = 40
+			if player_y_distance < -300:
+				jump_chance = 0
 			if chance > 60:
-				Transitioned.emit(self, "Boss_Slash")
-			elif chance > 40:
+				Transitioned.emit(self, "Boss_shockwave_phase2")
+			elif chance > jump_chance:
 				Transitioned.emit(self, "Boss_Platform_Jump")
 			else:
-				Transitioned.emit(self, "Boss_shockwave_phase2")
+				Transitioned.emit(self, "Boss_Slash")
 		elif $"../..".phase == 1: 
 			if chance > 40:
 				Transitioned.emit(self, "Boss_Slash")
@@ -51,7 +56,7 @@ func Update(_delta: float):
 			#tutorial states here
 			pass
 	
-	if player_distance > 0:
+	if player_x_distance > 0:
 		$"../..".direction = 1
 	else:
 		$"../..".direction = -1
