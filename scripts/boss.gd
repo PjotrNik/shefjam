@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -400.0
 var current_speed = 0
 var direction = 0
 var base_sprite_modulate : Color
-var phase = 0
+var phase = 1
 var flash_count = 0
 
 signal phase_change(phase)
@@ -62,3 +62,5 @@ func _on_phase_flash_timer_timeout():
 		pass
 	$PhaseFlashTimer.start(0.2)
 	
+func set_phase(phase1):
+	phase = phase1

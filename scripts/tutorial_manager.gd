@@ -24,7 +24,9 @@ func _ready() -> void:
 	await display_text(tutorials[2])
 	await display_text(tutorials[3])
 	var boss_instance = boss.instantiate()
+	boss_instance.phase_change.connect(_on_boss_phase_change)
 	var boss_hp_instance = boss_hp.instantiate()
+	boss_instance.set_phase(0)
 	boss_instance.global_position = boss_spawn.global_position
 	boss_hp_instance.set("size", Vector2(1152, 648)) 
 	boss_hp_instance.global_position = Vector2(0,0)
@@ -52,3 +54,7 @@ func display_text(text: String) -> void:
 	await tween.finished
 	await get_tree().create_timer(0.5).timeout
 	print("FINISHED")
+
+func _on_boss_phase_change(phase):
+	if phase == 1:
+		get_tree().change_scene_to_file("res://scenes/phase_1_map.tscn")
