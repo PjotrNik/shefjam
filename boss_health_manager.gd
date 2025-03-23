@@ -24,3 +24,9 @@ func get_max_hp():
 
 func get_hp():
 	return current_health
+	
+func set_max_hp(hp):
+	max_health = hp
+
+func set_hp(hp):
+	current_health = hp

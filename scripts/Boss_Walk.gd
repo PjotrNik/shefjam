@@ -31,13 +31,12 @@ func Update(_delta: float):
 	var player_x_distance = player_x - $"../..".position.x
 	var player_y_distance = player_y - $"../..".position.y
 	
+	if  $"../..".phase == 0:
+			Transitioned.emit(self, "Boss_Idle")
 	#Do attack, chance of slash or wave
 	if (abs(player_x_distance) < 160):
 		var chance = rng.randi_range(0,100)
-		if  $"../..".phase == 0:
-			print("TUTORIAL BOSS")
-			$"../..".velocity.x = 0
-		elif $"../..".phase == 2:
+		if $"../..".phase == 2:
 			var jump_chance = 40
 			if player_y_distance < -300:
 				jump_chance = 0

@@ -28,6 +28,7 @@ func _ready() -> void:
 	var boss_hp_instance = boss_hp.instantiate()
 	boss_instance.set_phase(0)
 	boss_instance.global_position = boss_spawn.global_position
+	#boss_instance.get_child_by_name("HealthManager").set_max_hp(30)
 	boss_hp_instance.set("size", Vector2(1152, 648)) 
 	boss_hp_instance.global_position = Vector2(0,0)
 	
