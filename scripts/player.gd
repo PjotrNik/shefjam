@@ -40,8 +40,8 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and not dashing:
 		velocity += get_gravity() * delta * 2
-		if not (is_animation_playing("dash") or is_animation_playing("hit")):
-			animated_sprite_2d.play("jump")
+		#if not (is_animation_playing("dash") or is_animation_playing("hit")):
+			#animated_sprite_2d.play("jump")
 		
 	if not has_landed and is_on_floor():
 		var dust_instance = dust_scene.instantiate()
