@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://7t3ngei26bp6"]
+[gd_scene load_steps=28 format=3 uid="uid://7t3ngei26bp6"]
 
 [ext_resource type="Script" uid="uid://cdije1okoq2vm" path="res://scripts/boss.gd" id="1_lnbgr"]
 [ext_resource type="Script" uid="uid://sqvd67sa4jvk" path="res://scripts/Boss_Walk.gd" id="2_6xxrv"]
@@ -22,7 +22,8 @@
 [ext_resource type="Script" uid="uid://cn4uekyo6ta6x" path="res://boss_health_manager.gd" id="10_kles1"]
 [ext_resource type="Script" uid="uid://dncbp1hk1jc80" path="res://boss_shockwave_phase_2.gd" id="13_km2bi"]
 [ext_resource type="Script" uid="uid://cep2oqo7urv1i" path="res://boss_platform_jump.gd" id="14_u0duv"]
-[ext_resource type="Script" path="res://scripts/Boss_Ground.gd" id="15_lc4na"]
+[ext_resource type="Script" uid="uid://dnsfk8lpjdo0a" path="res://scripts/Boss_Ground.gd" id="15_lc4na"]
+[ext_resource type="Script" uid="uid://cycsbrawihg0p" path="res://Boss_idle.gd" id="23_7ke2s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef0k6"]
 radius = 38.0
@@ -219,6 +220,11 @@ one_shot = true
 [node name="delay" type="Timer" parent="State_Machine/Boss_Ground"]
 one_shot = true
 
+[node name="Boss_Idle" type="Node" parent="State_Machine"]
+script = ExtResource("23_7ke2s")
+
+[node name="WaitTime" type="Timer" parent="State_Machine/Boss_Idle"]
+
 [node name="Attack Slash" type="Node2D" parent="."]
 position = Vector2(119, 0)
 
@@ -254,6 +260,7 @@ wait_time = 0.2
 [connection signal="timeout" from="State_Machine/Boss_shockwave_phase2/windup" to="State_Machine/Boss_shockwave_phase2" method="_on_windup_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_shockwave_phase2/delay" to="State_Machine/Boss_shockwave_phase2" method="_on_delay_timeout"]
 [connection signal="timeout" from="State_Machine/Boss_Ground/windup" to="State_Machine/Boss_Ground" method="_on_windup_timeout"]
+[connection signal="timeout" from="State_Machine/Boss_Idle/WaitTime" to="State_Machine/Boss_Idle" method="_on_wait_time_timeout"]
 [connection signal="damage_taken" from="HealthManager" to="." method="_on_health_manager_damage_taken"]
 [connection signal="health_depleted" from="HealthManager" to="." method="_on_health_manager_health_depleted"]
 [connection signal="timeout" from="HealthManager/FlashTimer" to="." method="_on_timer_timeout"]
