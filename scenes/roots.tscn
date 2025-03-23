@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3t560gr12b4y"]
+
+[ext_resource type="Texture2D" uid="uid://crhkl74d5fsfl" path="res://Sprites/thorn.png" id="1_pkiae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox81i"]
+size = Vector2(32, 32)
+
+[node name="roots" type="Area2D" groups=["root"]]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 16)
+shape = SubResource("RectangleShape2D_ox81i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("1_pkiae")

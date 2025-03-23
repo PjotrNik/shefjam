@@ -307,7 +307,7 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="MeleeCooldown" type="Timer" parent="MeleeAttack"]
-wait_time = 0.1
+wait_time = 0.45
 one_shot = true
 
 [node name="MeleeAnimation" type="AnimatedSprite2D" parent="MeleeAttack"]
@@ -341,7 +341,6 @@ scale = Vector2(0.96651, 1.96651)
 
 [node name="PlayerHitBoxCollision" type="CollisionShape2D" parent="PlayerHitBox"]
 position = Vector2(-0.517325, 1.27129)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="DeathTimer" type="Timer" parent="."]
