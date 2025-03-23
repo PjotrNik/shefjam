@@ -34,7 +34,7 @@
 [ext_resource type="Script" path="res://boss_hang.gd" id="26_kw08n"]
 [ext_resource type="Script" path="res://boss_eyes_phase_3.gd" id="27_rdfxm"]
 [ext_resource type="AudioStream" uid="uid://cdryqjt8osscl" path="res://assets/sounds/boss sfx/root_pop.mp3" id="28_7b5wb"]
-[ext_resource type="Script" uid="uid://cnuxk46fymksg" path="res://boss_water_phase_3.gd" id="28_cm1kr"]
+[ext_resource type="Script" path="res://boss_water_phase_3.gd" id="28_cm1kr"]
 [ext_resource type="Script" path="res://boss_fire_phase_3.gd" id="29_akhi5"]
 [ext_resource type="AudioStream" uid="uid://cufij0mbrfmxx" path="res://assets/sounds/boss sfx/thorn_Windup.mp3" id="31_vvoe5"]
 

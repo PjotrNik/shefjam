@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://wyy1dlvud7ug" path="res://assets/sounds/michelbaradari-human/pain1.wav" id="11_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://bkiyi1ncubkn4" path="res://assets/sounds/michelbaradari-human/die2.wav" id="12_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://d2l3mnppkmd30" path="res://assets/sounds/explosion.wav" id="12_jej6c"]
-[ext_resource type="AudioStream" uid="uid://bgmhqhxlwd20v" path="res://assets/sounds/jump.wav" id="13_jej6c"]
+[ext_resource type="AudioStream" uid="uid://wkel4j088t77" path="res://assets/sounds/JumpSoundsMan/jumppp11.ogg" id="13_oprun"]
 [ext_resource type="AudioStream" uid="uid://by55wggp7araw" path="res://assets/sounds/sword.mp3" id="14_f1ej7"]
 [ext_resource type="AudioStream" uid="uid://ddsd652iep1x7" path="res://assets/sounds/mouth-blow.mp3" id="15_oprun"]
 
@@ -366,7 +366,10 @@ stream = ExtResource("12_jej6c")
 volume_db = -5.0
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_jej6c")
+stream = ExtResource("13_oprun")
+volume_db = 7.384
+pitch_scale = 1.26
+bus = &"Jump"
 
 [node name="SwordSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_f1ej7")
